@@ -1,0 +1,19 @@
+apiVersion: rhpam.kiegroup.org/v1
+kind: KogitoBuild
+metadata:
+  name: rules
+spec:
+  type: RemoteSource
+  #env:
+  # env can be used to set variables during build
+  #- name: MY_CUSTOM_ENV
+  #  value: "my value"
+  gitSource:
+    uri: "https://github.ibm.com/delta-recognition-rules/rules.git"
+  # set your maven nexus repository to speed up the build time
+  #mavenMirrorURL:
+---
+apiVersion: rhpam.kiegroup.org/v1
+kind: KogitoRuntime
+metadata:
+  name: rules
