@@ -1,6 +1,6 @@
 ## Weather Advice DMN
 
-## Description
+Description
 
 A DMN service to return weather advice.
 
