@@ -1,45 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_24F4FE0F-4E4D-4880-B652-ACEDD89478D8" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_CA75E63D-DE14-453E-9BC0-22264D439569" name="Flight_recognition" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_24F4FE0F-4E4D-4880-B652-ACEDD89478D8">
   <dmn:extensionElements/>
-  <dmn:itemDefinition id="_B2DDB503-B153-450F-A0F5-E8E0914D1150" name="passenger" isCollection="false">
-    <dmn:itemComponent id="_B3E22D3A-0D56-4489-9D89-E6686A520C7B" name="seat" isCollection="false">
-      <dmn:typeRef>string</dmn:typeRef>
-    </dmn:itemComponent>
-    <dmn:itemComponent id="_1D105A09-54EE-4E18-AF21-7B3D2C1FFAB6" name="name" isCollection="false">
-      <dmn:typeRef>Any</dmn:typeRef>
-    </dmn:itemComponent>
-    <dmn:itemComponent id="_1AE707C6-6A15-4E2B-B21E-527A1603D56A" name="status" isCollection="false">
-      <dmn:typeRef>string</dmn:typeRef>
-      <dmn:allowedValues kie:constraintType="enumeration" id="_05ABF1AE-CB7A-4CFB-9802-5B72B182B36E">
-        <dmn:text>"360", "Diamond", "Gold", "Silver", "Blue", "Military"</dmn:text>
-      </dmn:allowedValues>
-    </dmn:itemComponent>
-    <dmn:itemComponent id="_B4EA8644-7E36-45C0-94C8-80A78001622F" name="million miler" isCollection="false">
-      <dmn:typeRef>boolean</dmn:typeRef>
-    </dmn:itemComponent>
-    <dmn:itemComponent id="_BACA25B0-A819-4399-900B-1DA02298D524" name="last received recognition" isCollection="false">
-      <dmn:typeRef>date</dmn:typeRef>
-    </dmn:itemComponent>
-    <dmn:itemComponent id="_29566521-4A8A-4610-9C14-A488F747C249" name="missed connection" isCollection="false">
-      <dmn:typeRef>boolean</dmn:typeRef>
-    </dmn:itemComponent>
-  </dmn:itemDefinition>
   <dmn:itemDefinition id="_35775D02-0BC0-44DD-85E6-FD0A27D5749F" name="flight" isCollection="false">
     <dmn:itemComponent id="_CA596B7D-2FDB-4F18-B948-40FD86480DEA" name="flight time" isCollection="false">
-      <dmn:typeRef>time</dmn:typeRef>
+      <dmn:typeRef>Any</dmn:typeRef>
     </dmn:itemComponent>
     <dmn:itemComponent id="_44B44DBC-F7F4-45CB-8626-16D5841EDE1E" name="flight date" isCollection="false">
       <dmn:typeRef>date</dmn:typeRef>
     </dmn:itemComponent>
     <dmn:itemComponent id="_2FA4C61B-BD6D-4494-BCD6-93C9F0C554DD" name="passengers" isCollection="true">
-      <dmn:typeRef>passenger</dmn:typeRef>
+      <dmn:itemComponent id="_29566521-4A8A-4610-9C14-A488F747C249" name="missed connection" isCollection="false">
+        <dmn:typeRef>boolean</dmn:typeRef>
+      </dmn:itemComponent>
+      <dmn:itemComponent id="_BACA25B0-A819-4399-900B-1DA02298D524" name="last received recognition" isCollection="false">
+        <dmn:typeRef>date</dmn:typeRef>
+      </dmn:itemComponent>
+      <dmn:itemComponent id="_B4EA8644-7E36-45C0-94C8-80A78001622F" name="million miler" isCollection="false">
+        <dmn:typeRef>boolean</dmn:typeRef>
+      </dmn:itemComponent>
+      <dmn:itemComponent id="_1AE707C6-6A15-4E2B-B21E-527A1603D56A" name="status" isCollection="false">
+        <dmn:typeRef>string</dmn:typeRef>
+        <dmn:allowedValues kie:constraintType="enumeration" id="_05ABF1AE-CB7A-4CFB-9802-5B72B182B36E">
+          <dmn:text>"360", "Diamond", "Gold", "Silver", "Blue", "Military"</dmn:text>
+        </dmn:allowedValues>
+      </dmn:itemComponent>
+      <dmn:itemComponent id="_1EB64F0E-1D35-4FEA-9BDF-87D3E491E8A7" name="seat" isCollection="false">
+        <dmn:typeRef>string</dmn:typeRef>
+      </dmn:itemComponent>
+      <dmn:itemComponent id="_9AC1652D-5BB9-4CAC-A70A-587E163F3C8A" name="name" isCollection="false">
+        <dmn:typeRef>string</dmn:typeRef>
+      </dmn:itemComponent>
     </dmn:itemComponent>
     <dmn:itemComponent id="_0FAC600D-1D9A-474F-838F-46B3FACC1B7F" name="distance" isCollection="false">
       <dmn:typeRef>number</dmn:typeRef>
     </dmn:itemComponent>
-  </dmn:itemDefinition>
-  <dmn:itemDefinition id="_00696B8B-6ABC-4851-ACD5-CEB8B0EB86F8" name="recognition" isCollection="true">
-    <dmn:typeRef>passenger</dmn:typeRef>
   </dmn:itemDefinition>
   <dmn:inputData id="_AF7C8AB0-FE87-48F2-A546-DF09A66DF832" name="Flight">
     <dmn:extensionElements/>
@@ -155,7 +149,7 @@ eligible for flight recognition</dmn:text>
     </dmn:informationRequirement>
     <dmn:context id="_6C42D77D-2E07-47C8-A2C4-F9340F74466C">
       <dmn:contextEntry>
-        <dmn:variable id="_E5AFD656-E05A-4C74-8603-D99D5AB9B59C" name="Eligible Passengers" typeRef="passenger"/>
+        <dmn:variable id="_E5AFD656-E05A-4C74-8603-D99D5AB9B59C" name="Eligible Passengers"/>
         <dmn:literalExpression id="_83788199-B227-4196-B724-F0C5B6494698">
           <dmn:text>if Eligible flight = true 
     then Flight.passengers[last received recognition + duration("P30D") &lt;   today()]  
@@ -188,7 +182,7 @@ eligible for flight recognition</dmn:text>
     </dmn:informationRequirement>
     <dmn:context id="_63D90BB2-6E13-4217-83F6-46320FBBAB40">
       <dmn:contextEntry>
-        <dmn:variable id="_A85F3D0A-5407-4DAB-8D50-93F2261B7B89" name="Special Passengers" typeRef="passenger"/>
+        <dmn:variable id="_A85F3D0A-5407-4DAB-8D50-93F2261B7B89" name="Special Passengers"/>
         <dmn:literalExpression id="_54C80F51-6E1A-4779-AF48-DD0F59681CB9">
           <dmn:text>if Eligible flight = true and date(Flight.flight date).month = 11 and date(Flight.flight date).day = 11 then Flight.passengers[status = "Military"] else null
 </dmn:text>
@@ -216,7 +210,7 @@ eligible for flight recognition</dmn:text>
     </dmn:informationRequirement>
     <dmn:decisionTable id="_CCBDD12A-A293-403C-A39A-2BA034899278" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
       <dmn:input id="_D2B6D218-A8EB-4B5B-B2CA-E675C8335844">
-        <dmn:inputExpression id="_885B7E6F-36CA-42FD-8B5A-D3C385FE2AD0" typeRef="passenger">
+        <dmn:inputExpression id="_885B7E6F-36CA-42FD-8B5A-D3C385FE2AD0">
           <dmn:text>Flight.passengers</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
@@ -243,7 +237,7 @@ eligible for flight recognition</dmn:text>
     </dmn:informationRequirement>
     <dmn:context id="_B47ADD8D-5B84-46C5-BF0F-DFE467B9B89F">
       <dmn:contextEntry>
-        <dmn:variable id="_AA92FD7F-5AA9-468D-9C67-957D68BD9C2A" name="Eligible Passengers" typeRef="passenger"/>
+        <dmn:variable id="_AA92FD7F-5AA9-468D-9C67-957D68BD9C2A" name="Eligible Passengers"/>
         <dmn:literalExpression id="_6E3626F1-3C47-4BF8-8758-2FA6D7E612EE">
           <dmn:text>Flight.passengers[last received recognition + duration("P30D") &lt;   today()]  
   
@@ -253,7 +247,7 @@ eligible for flight recognition</dmn:text>
       <dmn:contextEntry>
         <dmn:variable id="_BCD6E97D-CE11-42A2-A15C-BA9AE14E54CD" name="getPassengerPriority" typeRef="number"/>
         <dmn:functionDefinition id="_754339B0-B9F6-4AA9-A133-5E25BBAFB10E" kind="FEEL">
-          <dmn:formalParameter id="_81793000-7DAA-42DB-AF26-AECC667F9BAB" name="passenger" typeRef="passenger"/>
+          <dmn:formalParameter id="_81793000-7DAA-42DB-AF26-AECC667F9BAB" name="passenger"/>
           <dmn:decisionTable id="_753BD02E-CD2D-4543-9666-C19AF35A4129" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
             <dmn:input id="_D4E3EA27-4036-4CC5-B03D-7C134FE4BCA6">
               <dmn:inputExpression id="_85D6E68C-8E5B-454B-AC47-A847361E2AC1" typeRef="string">
