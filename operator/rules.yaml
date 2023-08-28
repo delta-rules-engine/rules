@@ -10,6 +10,6 @@ spec:
   #- name: MY_CUSTOM_ENV
   #  value: "my value"
   gitSource:
-    uri: "https://github.com/aashishsharmawork/rules"
+    uri: "https://github.com/delta-rules-engine/rules"
   # set your maven nexus repository to speed up the build time
   #mavenMirrorURL:

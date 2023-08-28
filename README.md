@@ -1,8 +1,8 @@
-## Weather Advice DMN
+## Recognition Ruleset DMN
 
 Description
 
-A DMN service to return weather advice.
+A DMN service to return flight recognitions.
 
 Demonstrates DMN on Kogito, including REST interface code generation.
 
@@ -163,5 +163,3 @@ Example response:
 ## Deploying with Kogito Operator
 
 In the [`operator`](operator) directory you'll find the custom resources needed to deploy this example on OpenShift with the [Kogito Operator](https://docs.jboss.org/kogito/release/latest/html_single/#chap_kogito-deploying-on-openshift).
-
-# rules1
