@@ -99,7 +99,7 @@ Given inputs:
       {
         "seat": "22A",
         "name": "Tim",
-        "status": "360",
+        "status": "Gold",
         "million miler": true,
         "last received recognition": "2021-12-20",
         "missed connection": true
@@ -114,8 +114,7 @@ Given inputs:
       }
     ],
     "distance": 200
-  },
-  "Passenger": "Test Passenger"
+  }
 }
 ```
 
@@ -134,7 +133,7 @@ Curl command (using the JSON object above):
           {
             "seat": "22A",
             "name": "Tim",
-            "status": "360",
+            "status": "Gold",
             "million miler": true,
             "last received recognition": "2021-12-20",
             "missed connection": true
@@ -149,8 +148,7 @@ Curl command (using the JSON object above):
           }
         ],
         "distance": 200
-      },
-      "Passenger": "Test Passenger"
+      }
     }'
 ```
 
