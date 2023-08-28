@@ -122,7 +122,7 @@ Curl command (using the JSON object above):
 
 ```sh
     curl -X 'POST' \
-      'http://localhost:8080/flight_recognition' \
+      'http://localhost:8080/Flight_recognition' \
       -H 'accept: application/json' \
       -H 'Content-Type: application/json' \
       -d '{
