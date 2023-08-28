@@ -21,7 +21,7 @@
       <dmn:itemComponent id="_1AE707C6-6A15-4E2B-B21E-527A1603D56A" name="status" isCollection="false">
         <dmn:typeRef>string</dmn:typeRef>
         <dmn:allowedValues kie:constraintType="enumeration" id="_05ABF1AE-CB7A-4CFB-9802-5B72B182B36E">
-          <dmn:text>"360", "Diamond", "Gold", "Silver", "Blue", "Military"</dmn:text>
+          <dmn:text>"Diamond", "Platinum", "Gold", "Silver"</dmn:text>
         </dmn:allowedValues>
       </dmn:itemComponent>
       <dmn:itemComponent id="_1EB64F0E-1D35-4FEA-9BDF-87D3E491E8A7" name="seat" isCollection="false">
@@ -58,7 +58,7 @@
           <dmn:text>&lt;=250</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_13B4375E-EEEC-4015-B5F6-CD72EC995A62">
-          <dmn:text>1</dmn:text>
+          <dmn:text>4</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text>Flights less than 250 miles, only 4 needed for recognition</dmn:text>
@@ -69,7 +69,7 @@
           <dmn:text>[251..499]</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_1E27F6BC-9AE2-46C2-9166-49411A823116">
-          <dmn:text>2</dmn:text>
+          <dmn:text>6</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text>Flights between 251 and 499 miles, 6 for recognition</dmn:text>
@@ -80,7 +80,7 @@
           <dmn:text>[500..899]</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_13C2D29C-3DED-4745-924F-FDF78B6C3ABC">
-          <dmn:text>3</dmn:text>
+          <dmn:text>15</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text>Flights between 500 and 899, 15 eligible for recognition</dmn:text>
@@ -250,7 +250,7 @@ eligible for flight recognition</dmn:text>
       <dmn:contextEntry>
         <dmn:variable id="_BCD6E97D-CE11-42A2-A15C-BA9AE14E54CD" name="getPassengerPriority" typeRef="number"/>
         <dmn:functionDefinition id="_754339B0-B9F6-4AA9-A133-5E25BBAFB10E" kind="FEEL">
-          <dmn:formalParameter id="_81793000-7DAA-42DB-AF26-AECC667F9BAB" name="passenger"/>
+          <dmn:formalParameter id="_81793000-7DAA-42DB-AF26-AECC667F9BAB" name="passenger" typeRef="Any"/>
           <dmn:decisionTable id="_753BD02E-CD2D-4543-9666-C19AF35A4129" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
             <dmn:input id="_D4E3EA27-4036-4CC5-B03D-7C134FE4BCA6">
               <dmn:inputExpression id="_85D6E68C-8E5B-454B-AC47-A847361E2AC1" typeRef="string">
@@ -272,10 +272,32 @@ eligible for flight recognition</dmn:text>
             </dmn:rule>
             <dmn:rule id="_D401BABD-157F-479F-9D24-99045B96AF07">
               <dmn:inputEntry id="_D3F014A2-955F-45F0-9693-61FF62DFE552">
-                <dmn:text>"Gold"</dmn:text>
+                <dmn:text>"Platinum"</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_22208D95-F46E-485B-8046-39C8EC3A4608">
                 <dmn:text>2</dmn:text>
+              </dmn:outputEntry>
+              <dmn:annotationEntry>
+                <dmn:text/>
+              </dmn:annotationEntry>
+            </dmn:rule>
+            <dmn:rule id="_68396EF2-EC46-4EA8-AE02-BC41D17BE137">
+              <dmn:inputEntry id="_D3D6C8DE-87F2-4E33-9257-988C316440C0">
+                <dmn:text>"Gold"</dmn:text>
+              </dmn:inputEntry>
+              <dmn:outputEntry id="_10345EAB-45DE-479D-A03C-8783887EC20F">
+                <dmn:text>3</dmn:text>
+              </dmn:outputEntry>
+              <dmn:annotationEntry>
+                <dmn:text/>
+              </dmn:annotationEntry>
+            </dmn:rule>
+            <dmn:rule id="_B149D8CB-25AD-4AC7-B2B5-756839B8969E">
+              <dmn:inputEntry id="_C1A65FAA-DEAA-45D3-8CA1-D93B1825F6E3">
+                <dmn:text>"Silver"</dmn:text>
+              </dmn:inputEntry>
+              <dmn:outputEntry id="_25263250-B9FE-498E-92B3-59145014B0DB">
+                <dmn:text>4</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
