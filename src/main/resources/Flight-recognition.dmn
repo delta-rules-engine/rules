@@ -115,7 +115,7 @@
       <dmn:annotation name="Notes"/>
       <dmn:rule id="_241906C8-81D8-4AB6-A1F4-907BC5557B1B">
         <dmn:inputEntry id="_919053E8-A147-4B07-A6A4-83820AC6FCF2">
-          <dmn:text>time(?).hour &gt;= 4 or time(?).hour &lt; 22  </dmn:text>
+          <dmn:text>time(?).hour &gt;= 4 and time(?).hour &lt; 22  </dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_162C359B-4460-48CB-888D-84110C01FCD2">
           <dmn:text>true</dmn:text>
@@ -126,7 +126,7 @@
       </dmn:rule>
       <dmn:rule id="_CBB43E59-9AD7-4952-9509-2D1DB60B85F9">
         <dmn:inputEntry id="_D2CB3794-E2CA-4D4F-A593-95137911E5E1">
-          <dmn:text>time(?).hour &lt; 4 or time(?).hour &gt;= 22</dmn:text>
+          <dmn:text>time(?).hour &lt; 4 and time(?).hour &gt;= 22</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_3A14B8D5-1985-4B19-AE71-D8BD2921113A">
           <dmn:text>false</dmn:text>
