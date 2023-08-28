@@ -84,53 +84,80 @@ See results in surefire test report `target/surefire-reports`
 
 Once the service is up and running, you can use the following example to interact with the service.
 
-### POST /WeatherAdvice
+### POST /Flight_recognition
 
-Returns weather advisory from the given inputs
+Returns recognitions from the given inputs
 
 Given inputs:
 
 ```json
-  "Weather": {
-    "rainForecast": 0,
-    "stormAlert": true,
-    "temperature": "cold"
+{
+  "Flight": {
+    "flight time": "09:00",
+    "flight date": "2023-08-28",
+    "passengers": [
+      {
+        "seat": "22A",
+        "name": "Tim",
+        "status": "360",
+        "million miler": true,
+        "last received recognition": "2021-12-20",
+        "missed connection": true
+      },
+      {
+        "seat": "22B",
+        "name": "Steve",
+        "status": "Diamond",
+        "million miler": false,
+        "last received recognition": "2022-01-01",
+        "missed connection": false
+      }
+    ],
+    "distance": 200
   },
-  "Name": "string"
+  "Passenger": "Test Passenger"
+}
 ```
 
 Curl command (using the JSON object above):
 
 ```sh
-curl -X 'POST' \
-  'http://localhost:8080/WeatherAdvice' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "Weather": {
-    "rainForecast": 0,
-    "stormAlert": true,
-    "temperature": "cold"
-  },
-  "Name": "string"
-}'
+    curl -X 'POST' \
+      'http://localhost:8080/flight_recognition' \
+      -H 'accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -d '{
+      "Flight": {
+        "flight time": "09:00",
+        "flight date": "2023-08-28",
+        "passengers": [
+          {
+            "seat": "22A",
+            "name": "Tim",
+            "status": "360",
+            "million miler": true,
+            "last received recognition": "2021-12-20",
+            "missed connection": true
+          },
+          {
+            "seat": "22B",
+            "name": "Steve",
+            "status": "Diamond",
+            "million miler": false,
+            "last received recognition": "2022-01-01",
+            "missed connection": false
+          }
+        ],
+        "distance": 200
+      },
+      "Passenger": "Test Passenger"
+    }'
 ```
-
-As response, penalty information is returned.
 
 Example response:
 
 ```json
-{
-  "Weather": {
-    "temperature": "cold",
-    "rainForecast": 0,
-    "stormAlert": true
-  },
-  "WeatherAdvice": "Stay home! There is a storm alert.",
-  "DailyAdvice": "Hello string! Stay home! There is a storm alert.",
-  "Name": "string"
-}
+{}
 ```
 
 ## Deploying with Kogito Operator
