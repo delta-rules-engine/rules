@@ -6,7 +6,7 @@
       <dmn:typeRef>string</dmn:typeRef>
     </dmn:itemComponent>
     <dmn:itemComponent id="_CA596B7D-2FDB-4F18-B948-40FD86480DEA" name="flight time" isCollection="false">
-      <dmn:typeRef>Any</dmn:typeRef>
+      <dmn:typeRef>time</dmn:typeRef>
     </dmn:itemComponent>
     <dmn:itemComponent id="_44B44DBC-F7F4-45CB-8626-16D5841EDE1E" name="flight date" isCollection="false">
       <dmn:typeRef>date</dmn:typeRef>
@@ -19,6 +19,9 @@
     </dmn:itemComponent>
   </dmn:itemDefinition>
   <dmn:itemDefinition id="_048BE287-F35E-47BA-A47C-3CF7D763A086" name="Passenger" isCollection="false">
+    <dmn:itemComponent id="_ACA478C1-FE9A-427C-9D04-0D3F07198AC7" name="priority" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
     <dmn:itemComponent id="_58B2E806-FB76-4DFB-BB59-C8700D84EFE4" name="delay" isCollection="false">
       <dmn:typeRef>boolean</dmn:typeRef>
     </dmn:itemComponent>
@@ -96,6 +99,9 @@
   <dmn:decision id="_D5851A3F-AA48-4C39-88D7-7730530A9AE2" name="Number for recognition">
     <dmn:extensionElements/>
     <dmn:variable id="_C669AC14-A7F5-43EC-9DE7-014BA4F5A067" name="Number for recognition" typeRef="number"/>
+    <dmn:informationRequirement id="_BE887410-2C41-4D33-8D45-77A45A717777">
+      <dmn:requiredDecision href="#_70EC4650-A7D0-4E54-BA0F-A76088699298"/>
+    </dmn:informationRequirement>
     <dmn:decisionTable id="_0DA58D54-A2BA-45EE-902B-91DFD9297B14" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
       <dmn:input id="_22EB8DD6-B7A3-4C0A-BBED-63AE2BE29BCD">
         <dmn:inputExpression id="_F77181B5-92D6-40E3-9896-7D1B029417A6" typeRef="number">
@@ -192,9 +198,6 @@ eligible for flight recognition</dmn:text>
   <dmn:decision id="_70EC4650-A7D0-4E54-BA0F-A76088699298" name="Eligible for Recognition?">
     <dmn:extensionElements/>
     <dmn:variable id="_D14066F9-9323-4454-8ED9-4C31DEE04860" name="Eligible for Recognition?" typeRef="Any"/>
-    <dmn:informationRequirement id="_BE887410-2C41-4D33-8D45-77A45A717777">
-      <dmn:requiredDecision href="#_D5851A3F-AA48-4C39-88D7-7730530A9AE2"/>
-    </dmn:informationRequirement>
     <dmn:informationRequirement id="_C9D8F338-CD2A-4B85-9BDB-DE443C0BF77E">
       <dmn:requiredInput href="#_AF7C8AB0-FE87-48F2-A546-DF09A66DF832"/>
     </dmn:informationRequirement>
@@ -334,16 +337,16 @@ eligible for flight recognition</dmn:text>
     <dmn:extensionElements/>
     <dmn:variable id="_D37FDA85-70FF-4EBD-9C8A-A2277C584180" name="Passenger" typeRef="Passenger"/>
   </dmn:inputData>
-  <dmn:decision id="_90E1CB76-F008-45AF-BF56-0A6A1C3056A7" name="Qualified Flyer">
+  <dmn:decision id="_90E1CB76-F008-45AF-BF56-0A6A1C3056A7" name="qualified flyer">
     <dmn:extensionElements/>
-    <dmn:variable id="_8F97A6C3-ADFB-4C10-8815-5BD958FD829F" name="Qualified Flyer" typeRef="boolean"/>
+    <dmn:variable id="_8F97A6C3-ADFB-4C10-8815-5BD958FD829F" name="qualified flyer" typeRef="boolean"/>
     <dmn:informationRequirement id="_03D23156-3381-414C-AEB8-A2236BC037E6">
       <dmn:requiredInput href="#_AF7C8AB0-FE87-48F2-A546-DF09A66DF832"/>
     </dmn:informationRequirement>
     <dmn:informationRequirement id="_B4858CA5-F7C1-4012-B690-460525C199EF">
       <dmn:requiredInput href="#_9FDF3050-6DE2-427D-8153-C782E7BEA820"/>
     </dmn:informationRequirement>
-    <dmn:decisionTable id="_FF47CF21-43E9-46D5-9EE5-9C8013B732DD" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+    <dmn:decisionTable id="_FF47CF21-43E9-46D5-9EE5-9C8013B732DD" hitPolicy="FIRST" preferredOrientation="Rule-as-Row">
       <dmn:input id="_292BBBE8-6D72-458F-B31D-E6E965BB15F4">
         <dmn:inputExpression id="_E20E31DF-21AC-4A6C-9438-7ACD0541D368" typeRef="string">
           <dmn:text>Flight.Flight Carrier</dmn:text>
@@ -456,9 +459,9 @@ eligible for flight recognition</dmn:text>
       </dmn:rule>
     </dmn:decisionTable>
   </dmn:decision>
-  <dmn:decision id="_D0470EF1-F601-4424-89FE-A2B078C92FC9" name="set priority">
+  <dmn:decision id="_D0470EF1-F601-4424-89FE-A2B078C92FC9" name="Passenger.priority">
     <dmn:extensionElements/>
-    <dmn:variable id="_6FF696DC-6444-49AC-9BFE-B1F260C87CC3" name="set priority" typeRef="number"/>
+    <dmn:variable id="_6FF696DC-6444-49AC-9BFE-B1F260C87CC3" name="Passenger.priority" typeRef="number"/>
     <dmn:informationRequirement id="_432969B3-B4DB-414B-8F56-8C2C5DD358E9">
       <dmn:requiredDecision href="#_00AB9B12-9D89-4618-BD18-822B53FD3BA4"/>
     </dmn:informationRequirement>
@@ -471,7 +474,7 @@ eligible for flight recognition</dmn:text>
     <dmn:informationRequirement id="_5FCC26BF-5AFB-4536-B56E-B183F28B3A4A">
       <dmn:requiredInput href="#_9FDF3050-6DE2-427D-8153-C782E7BEA820"/>
     </dmn:informationRequirement>
-    <dmn:decisionTable id="_064677F6-506F-4950-A12B-725D5666DE0F" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+    <dmn:decisionTable id="_064677F6-506F-4950-A12B-725D5666DE0F" hitPolicy="FIRST" preferredOrientation="Rule-as-Row">
       <dmn:input id="_43A280E4-499F-441C-B98F-A3EC36D135F2">
         <dmn:inputExpression id="_E2E2133B-52C8-4E40-A3C6-211DC0B22B8D" typeRef="boolean">
           <dmn:text>Eligible flight</dmn:text>
@@ -857,6 +860,47 @@ eligible for flight recognition</dmn:text>
           <dmn:text/>
         </dmn:annotationEntry>
       </dmn:rule>
+      <dmn:rule id="_B8EF38F7-7321-4D3E-9B3C-BE37F0752B12">
+        <dmn:inputEntry id="_16AEC873-F74E-479E-9199-EA6B474203FD">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_C077075A-A1F0-415C-BA4E-C0428960A436">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9C22225C-94D3-488A-BDDF-A606CEB7AF00">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_D686FD8A-EDAD-4E51-AB32-62B9D4900DE6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_95B4CB62-315C-41A4-A28E-BBF48608A64E">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7A09EF25-8A9C-4582-A749-80849528D2B6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_DF65CF77-ACDE-4772-A498-39934E430BF3">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_264BFF14-79C0-425C-8886-948A7A77C3A9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_21DE47F5-B8BB-45FD-8A27-0F9AD4DC8AEF">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_64135EF5-20E7-4B4D-9A72-0B25F387B14B">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_AE6D691D-6A10-4C6B-BCB6-8C4E3028173E">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_6CE12BA3-5E45-4FAE-8652-160CF333F70C">
+          <dmn:text>0</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
     </dmn:decisionTable>
   </dmn:decision>
   <dmndi:DMNDI>
@@ -935,11 +979,11 @@ eligible for flight recognition</dmn:text>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
+            <kie:width>162</kie:width>
+            <kie:width>181</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
-            <kie:width>100</kie:width>
-            <kie:width>100</kie:width>
-            <kie:width>100</kie:width>
+            <kie:width>137</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
           </kie:ComponentWidths>
@@ -969,7 +1013,7 @@ eligible for flight recognition</dmn:text>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="568" y="187" width="100" height="50"/>
+        <dc:Bounds x="568" y="167" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_70EC4650-A7D0-4E54-BA0F-A76088699298" dmnElementRef="_70EC4650-A7D0-4E54-BA0F-A76088699298" isCollapsed="false">
@@ -996,7 +1040,7 @@ eligible for flight recognition</dmn:text>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="349" y="15" width="100" height="50"/>
+        <dc:Bounds x="822" y="75" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_9FDF3050-6DE2-427D-8153-C782E7BEA820" dmnElementRef="_9FDF3050-6DE2-427D-8153-C782E7BEA820" isCollapsed="false">
@@ -1005,7 +1049,7 @@ eligible for flight recognition</dmn:text>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="17" y="358" width="100" height="50"/>
+        <dc:Bounds x="164.59813084112147" y="2.6842105263157805" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_90E1CB76-F008-45AF-BF56-0A6A1C3056A7" dmnElementRef="_90E1CB76-F008-45AF-BF56-0A6A1C3056A7" isCollapsed="false">
@@ -1014,7 +1058,7 @@ eligible for flight recognition</dmn:text>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="129" y="196" width="100" height="50"/>
+        <dc:Bounds x="338" y="167" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_D0470EF1-F601-4424-89FE-A2B078C92FC9" dmnElementRef="_D0470EF1-F601-4424-89FE-A2B078C92FC9" isCollapsed="false">
@@ -1023,16 +1067,16 @@ eligible for flight recognition</dmn:text>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="325" y="317" width="100" height="50"/>
+        <dc:Bounds x="377" y="325" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_BE887410-2C41-4D33-8D45-77A45A717777" dmnElementRef="_BE887410-2C41-4D33-8D45-77A45A717777">
+        <di:waypoint x="945" y="375"/>
+        <di:waypoint x="945" y="463"/>
+      </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_1E0F801B-8739-4A88-ACCE-3DE2AEDA3914-AUTO-SOURCE" dmnElementRef="_1E0F801B-8739-4A88-ACCE-3DE2AEDA3914">
         <di:waypoint x="665.9999999999999" y="65.00000000000011"/>
-        <di:waypoint x="618" y="212"/>
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="dmnedge-drg-_BE887410-2C41-4D33-8D45-77A45A717777" dmnElementRef="_BE887410-2C41-4D33-8D45-77A45A717777">
-        <di:waypoint x="945" y="498"/>
-        <di:waypoint x="945" y="350"/>
+        <di:waypoint x="618" y="192"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_C9D8F338-CD2A-4B85-9BDB-DE443C0BF77E-AUTO-TARGET" dmnElementRef="_C9D8F338-CD2A-4B85-9BDB-DE443C0BF77E">
         <di:waypoint x="665.9999999999999" y="40.000000000000114"/>
@@ -1045,31 +1089,31 @@ eligible for flight recognition</dmn:text>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_6BE573D2-B46E-4F3D-A0F8-1C24A330B696" dmnElementRef="_6BE573D2-B46E-4F3D-A0F8-1C24A330B696">
         <di:waypoint x="665.9999999999999" y="40.000000000000114"/>
-        <di:waypoint x="399" y="40"/>
+        <di:waypoint x="872" y="100"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_03D23156-3381-414C-AEB8-A2236BC037E6" dmnElementRef="_03D23156-3381-414C-AEB8-A2236BC037E6">
         <di:waypoint x="615.9999999999999" y="40.000000000000114"/>
-        <di:waypoint x="229" y="221"/>
+        <di:waypoint x="438" y="192"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_B4858CA5-F7C1-4012-B690-460525C199EF" dmnElementRef="_B4858CA5-F7C1-4012-B690-460525C199EF">
-        <di:waypoint x="67" y="383"/>
-        <di:waypoint x="179" y="246"/>
+        <di:waypoint x="214.59813084112147" y="27.68421052631578"/>
+        <di:waypoint x="388" y="167"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_432969B3-B4DB-414B-8F56-8C2C5DD358E9-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="_432969B3-B4DB-414B-8F56-8C2C5DD358E9">
-        <di:waypoint x="618" y="187"/>
-        <di:waypoint x="375" y="367"/>
+        <di:waypoint x="618" y="167"/>
+        <di:waypoint x="427" y="375"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_57E56C25-401C-4EF8-9463-1C1975DC7539" dmnElementRef="_57E56C25-401C-4EF8-9463-1C1975DC7539">
         <di:waypoint x="665.9999999999999" y="40.000000000000114"/>
-        <di:waypoint x="375" y="317"/>
+        <di:waypoint x="427" y="325"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_0BC008F0-C6F4-495D-83CC-6A55C8AB5EEF-AUTO-TARGET" dmnElementRef="_0BC008F0-C6F4-495D-83CC-6A55C8AB5EEF">
-        <di:waypoint x="179" y="221"/>
-        <di:waypoint x="375" y="317"/>
+        <di:waypoint x="388" y="192"/>
+        <di:waypoint x="427" y="325"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_5FCC26BF-5AFB-4536-B56E-B183F28B3A4A" dmnElementRef="_5FCC26BF-5AFB-4536-B56E-B183F28B3A4A">
-        <di:waypoint x="67" y="383"/>
-        <di:waypoint x="325" y="342"/>
+        <di:waypoint x="214.59813084112147" y="27.68421052631578"/>
+        <di:waypoint x="377" y="350"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
