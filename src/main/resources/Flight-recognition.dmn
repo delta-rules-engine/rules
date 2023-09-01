@@ -53,7 +53,7 @@
       <dmn:typeRef>boolean</dmn:typeRef>
     </dmn:itemComponent>
     <dmn:itemComponent id="_DFF2F632-4C0E-4059-9AB4-A2E59914DFAE" name="age" isCollection="false">
-      <dmn:typeRef>Any</dmn:typeRef>
+      <dmn:typeRef>number</dmn:typeRef>
     </dmn:itemComponent>
     <dmn:itemComponent id="_24EEC182-B444-4197-9B94-107B9F819FF6" name="group booking size" isCollection="false">
       <dmn:typeRef>number</dmn:typeRef>
@@ -527,7 +527,7 @@ eligible for flight recognition</dmn:text>
       </dmn:input>
       <dmn:input id="_E1D88FB0-3654-4003-83C1-7CB7A1D96787">
         <dmn:inputExpression id="_5C92E24E-FE41-4C87-AF34-EDEE0BE9FF46" typeRef="boolean">
-          <dmn:text>Qualified Flyer</dmn:text>
+          <dmn:text>qualified flyer</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
       <dmn:output id="_323D129D-CABB-4CBB-B863-BD255BD03AC8"/>
