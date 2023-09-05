@@ -2,7 +2,7 @@ apiVersion: rhpam.kiegroup.org/v1
 kind: KogitoBuild
 metadata:
   name: rules
-  namespace: patrick
+  namespace: kogito
 spec:
   type: RemoteSource
   #env:
