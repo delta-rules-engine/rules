@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_24F4FE0F-4E4D-4880-B652-ACEDD89478D8" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_CA75E63D-DE14-453E-9BC0-22264D439569" name="Flight_recognition" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_24F4FE0F-4E4D-4880-B652-ACEDD89478D8">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_35775D02-0BC0-44DD-85E6-FD0A27D5749F" name="flight" isCollection="false">
+    <dmn:itemComponent id="_8D194B96-BB30-4D8F-8641-71DE5E23105D" name="Flight Carrier" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_CA596B7D-2FDB-4F18-B948-40FD86480DEA" name="flight time" isCollection="false">
+      <dmn:typeRef>time</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_44B44DBC-F7F4-45CB-8626-16D5841EDE1E" name="flight date" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_2FA4C61B-BD6D-4494-BCD6-93C9F0C554DD" name="passengers" isCollection="true">
+      <dmn:typeRef>Passenger</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_0FAC600D-1D9A-474F-838F-46B3FACC1B7F" name="distance" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_048BE287-F35E-47BA-A47C-3CF7D763A086" name="Passenger" isCollection="false">
+    <dmn:itemComponent id="_F3F9E2B7-7DDD-404F-942D-AE18DA1E22EC" name="milestone multiple" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_12076EC7-6F15-4F27-B5B1-8CF8AEEAE9B0" name="Insert a name" isCollection="false">
+      <dmn:typeRef>Any</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_ACA478C1-FE9A-427C-9D04-0D3F07198AC7" name="priority" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_58B2E806-FB76-4DFB-BB59-C8700D84EFE4" name="delay" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_384CB2EE-F7BD-4459-8F59-B4768476B5AF" name="is a 360 member" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_A62DAB3F-6EC3-4901-ABBD-D36495C8E488" name="days since last Delta flight" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_20BBD3A8-EDF3-4867-9943-A1BA33F4A33D" name="IROP severity level" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_7EFF7E19-2C38-429C-BF4E-7D54A71E8C77" name="days since SkyMiles member" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_A81C2D6D-3B51-4331-B4C9-27B7AC22571F" name="days since new tier" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_F7A5E546-E146-403C-BCC3-E51C63E1F633" name="quarantined" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_16AE9082-B368-44FE-BAA4-22207CD3340B" name="medallion member" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_D12E1303-CF5D-4D74-99F7-976ED203F940" name="corporate flyer" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_8EB566A3-D9D9-4540-AE45-D1BBAAEE496C" name="military" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_DFF2F632-4C0E-4059-9AB4-A2E59914DFAE" name="age" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_24EEC182-B444-4197-9B94-107B9F819FF6" name="group booking size" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_FDC3A810-4EE1-4FAF-B113-D3672A8A48AB" name="employee" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_118F620A-1EE2-422E-98DB-C93946A7A82B" name="unaccompanied minor" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_3B280DCE-CCA1-4534-8AE6-B32FC27F28EB" name="infant" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_43AAB730-A67D-48A0-93D5-62F940B449EA" name="skymiles member" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_E1F069E9-A337-4B10-8873-FBD53A693097" name="seat" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_C5743B18-C884-4C31-A633-2A80B77FD5B5" name="last reveived recognition" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_44375F58-C95A-40D6-8B73-A02885334568" name="million miler" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_C60D4CF6-28D4-48F1-ADCD-9A2472ADEEDA" name="status" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+      <dmn:allowedValues kie:constraintType="enumeration" id="_2B7AFEDB-52D3-48C0-9226-4FA7E54601E3">
+        <dmn:text>"Diamond", "Platinum", "Gold", "Silver"</dmn:text>
+      </dmn:allowedValues>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_313A3C85-57B9-4A19-8CFB-03502145376E" name="missed connection" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_FC788088-DFB7-4F98-A96F-DF4F6C470E08" name="name" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_AF7C8AB0-FE87-48F2-A546-DF09A66DF832" name="Flight">
+    <dmn:extensionElements/>
+    <dmn:variable id="_309862D9-26B1-4739-A559-BDC949892F59" name="Flight" typeRef="flight"/>
+  </dmn:inputData>
+  <dmn:decision id="_D5851A3F-AA48-4C39-88D7-7730530A9AE2" name="Number for recognition">
+    <dmn:extensionElements/>
+    <dmn:variable id="_C669AC14-A7F5-43EC-9DE7-014BA4F5A067" name="Number for recognition" typeRef="number"/>
+    <dmn:informationRequirement id="_BE887410-2C41-4D33-8D45-77A45A717777">
+      <dmn:requiredDecision href="#_70EC4650-A7D0-4E54-BA0F-A76088699298"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_850C411D-CBAD-4ED9-96E2-1AA05DAB1277">
+      <dmn:requiredInput href="#_AF7C8AB0-FE87-48F2-A546-DF09A66DF832"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_0DA58D54-A2BA-45EE-902B-91DFD9297B14" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_22EB8DD6-B7A3-4C0A-BBED-63AE2BE29BCD">
+        <dmn:inputExpression id="_F77181B5-92D6-40E3-9896-7D1B029417A6" typeRef="number">
+          <dmn:text>Flight.distance</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_0664898A-0BB2-4C1D-B88C-7949A424599D"/>
+      <dmn:annotation name="Rule information"/>
+      <dmn:rule id="_0F746106-E93D-48F2-A805-82FA8D195E04">
+        <dmn:inputEntry id="_16556F63-8230-4FE6-BC4E-5E631AB6270F">
+          <dmn:text>&lt;=250</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_13B4375E-EEEC-4015-B5F6-CD72EC995A62">
+          <dmn:text>4</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Flights less than 250 miles, only 4 needed for recognition</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_386F114C-5085-4B5C-BDD3-46E27851F6DF">
+        <dmn:inputEntry id="_C3B028D7-B120-41B7-B510-26396DAC50A4">
+          <dmn:text>[251..499]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_1E27F6BC-9AE2-46C2-9166-49411A823116">
+          <dmn:text>6</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Flights between 251 and 499 miles, 6 for recognition</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_A1709103-F7EB-4C95-B185-34691E6A87F5">
+        <dmn:inputEntry id="_E774C521-7B1B-482C-A2EF-9188F7D0288E">
+          <dmn:text>[500..899]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_13C2D29C-3DED-4745-924F-FDF78B6C3ABC">
+          <dmn:text>15</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Flights between 500 and 899, 15 eligible for recognition</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_D5537348-7B40-4B88-BF08-60FFCEFF0104">
+        <dmn:inputEntry id="_2A5818B9-E828-46E2-AD23-AC6CF4B74D76">
+          <dmn:text>&gt;900</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_FF7A05BA-6862-4502-81E0-1675D1CC05B1">
+          <dmn:text>20</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Flights over 900 miles, 20 are eligible for recognition</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:decision id="_00AB9B12-9D89-4618-BD18-822B53FD3BA4" name="Eligible flight">
+    <dmn:extensionElements/>
+    <dmn:variable id="_720B18EB-2397-4B53-B2BF-E39DB6004804" name="Eligible flight" typeRef="boolean"/>
+    <dmn:informationRequirement id="_1E0F801B-8739-4A88-ACCE-3DE2AEDA3914">
+      <dmn:requiredInput href="#_AF7C8AB0-FE87-48F2-A546-DF09A66DF832"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_6A893A9C-B3DB-455F-A7C2-4603D05E2E70" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_C420BFC6-26F9-45E9-851F-F62B44C791E3">
+        <dmn:inputExpression id="_7CBCBD33-FC21-4E3E-BA89-4D8A3E8F193A" typeRef="time">
+          <dmn:text>Flight.flight time</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_80EE8A83-C3A7-4110-8879-4F2A3DFAD733"/>
+      <dmn:annotation name="Notes"/>
+      <dmn:rule id="_241906C8-81D8-4AB6-A1F4-907BC5557B1B">
+        <dmn:inputEntry id="_919053E8-A147-4B07-A6A4-83820AC6FCF2">
+          <dmn:text>time(?).hour &gt;= 4 and time(?).hour &lt; 22  </dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_162C359B-4460-48CB-888D-84110C01FCD2">
+          <dmn:text>true</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Flights between 5AM and 10PM Local time are eligible</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_CBB43E59-9AD7-4952-9509-2D1DB60B85F9">
+        <dmn:inputEntry id="_D2CB3794-E2CA-4D4F-A593-95137911E5E1">
+          <dmn:text>time(?).hour &lt; 4 and time(?).hour &gt;= 22</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_3A14B8D5-1985-4B19-AE71-D8BD2921113A">
+          <dmn:text>false</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Flights departing other hours of day should not be 
+eligible for flight recognition</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:decision id="_70EC4650-A7D0-4E54-BA0F-A76088699298" name="Eligible for Recognition?">
+    <dmn:extensionElements/>
+    <dmn:variable id="_D14066F9-9323-4454-8ED9-4C31DEE04860" name="Eligible for Recognition?" typeRef="Any"/>
+    <dmn:informationRequirement id="_C9D8F338-CD2A-4B85-9BDB-DE443C0BF77E">
+      <dmn:requiredInput href="#_AF7C8AB0-FE87-48F2-A546-DF09A66DF832"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_6C42D77D-2E07-47C8-A2C4-F9340F74466C">
+      <dmn:contextEntry>
+        <dmn:variable id="_E5AFD656-E05A-4C74-8603-D99D5AB9B59C" name="Eligible Passengers"/>
+        <dmn:literalExpression id="_83788199-B227-4196-B724-F0C5B6494698">
+          <dmn:text>if Eligible flight = true 
+    then Flight.passengers[last received recognition + duration("P30D") &lt;   today()]  
+  else null
+</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_0FD0EA0C-1A0C-46F0-84BB-96DA905A941E" name="Eligible Passenger Count" typeRef="number"/>
+        <dmn:literalExpression id="_465E349F-3764-4E41-9EAF-22BF15D428E5">
+          <dmn:text>count (Eligible Passengers)</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_1EED163C-8642-4DFD-9778-49A10A9E996C">
+          <dmn:text>Eligible Passengers</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmn:decision id="_9E14A6A4-85FE-466A-9504-A509AE4C9CD2" name="Assign priority">
+    <dmn:extensionElements/>
+    <dmn:variable id="_0C93958A-5820-465B-A3D4-3ED0707BCD48" name="Assign priority" typeRef="Any"/>
+    <dmn:informationRequirement id="_6BE573D2-B46E-4F3D-A0F8-1C24A330B696">
+      <dmn:requiredInput href="#_AF7C8AB0-FE87-48F2-A546-DF09A66DF832"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_B47ADD8D-5B84-46C5-BF0F-DFE467B9B89F">
+      <dmn:contextEntry>
+        <dmn:variable id="_AA92FD7F-5AA9-468D-9C67-957D68BD9C2A" name="eligiblePassengers"/>
+        <dmn:literalExpression id="_6E3626F1-3C47-4BF8-8758-2FA6D7E612EE">
+          <dmn:text>[]</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_BCD6E97D-CE11-42A2-A15C-BA9AE14E54CD" name="getEligiblePassengers" typeRef="number"/>
+        <dmn:functionDefinition id="_754339B0-B9F6-4AA9-A133-5E25BBAFB10E" kind="FEEL">
+          <dmn:formalParameter id="_81793000-7DAA-42DB-AF26-AECC667F9BAB" name="passenger" typeRef="Any"/>
+          <dmn:decisionTable id="_53B4E68D-47F7-4EC9-A078-BCD858BC4E01" hitPolicy="FIRST" preferredOrientation="Rule-as-Row">
+            <dmn:input id="_963AF027-8A0E-4FBC-BDD8-9C71C7BA6607">
+              <dmn:inputExpression id="_E20E31DF-21AC-4A6C-9438-7ACD0541D368" typeRef="string">
+                <dmn:text>Flight.Flight Carrier</dmn:text>
+              </dmn:inputExpression>
+            </dmn:input>
+            <dmn:input id="_E6772E06-1956-40B0-A878-2FD586B6446B">
+              <dmn:inputExpression id="_F93A93D4-25C7-4B2F-9087-B0EC4B734B90" typeRef="boolean">
+                <dmn:text>Passenger.employee</dmn:text>
+              </dmn:inputExpression>
+            </dmn:input>
+            <dmn:input id="_054B14D1-BF22-4815-BFF9-B30BBB7A6974">
+              <dmn:inputExpression id="_49AE38E6-4E12-4CA2-8D48-F2526168AA1B" typeRef="number">
+                <dmn:text>Passenger.group booking size</dmn:text>
+              </dmn:inputExpression>
+            </dmn:input>
+            <dmn:input id="_10FF740D-7705-4992-847C-8B9FC825B13E">
+              <dmn:inputExpression id="_6E10AAB9-E2FB-46AE-9B25-98EC66105EEE" typeRef="boolean">
+                <dmn:text>Passenger.infant</dmn:text>
+              </dmn:inputExpression>
+            </dmn:input>
+            <dmn:input id="_50AB60BA-CA6B-42A3-AA79-5E4340F7FA68">
+              <dmn:inputExpression id="_FB78D93B-84CA-494A-A43C-F156197B6DB1" typeRef="boolean">
+                <dmn:text>Passenger.skymiles member</dmn:text>
+              </dmn:inputExpression>
+            </dmn:input>
+            <dmn:input id="_09D3AF70-1C9D-4EDF-A6FF-36E584A75F1E">
+              <dmn:inputExpression id="_764D83AE-84E3-4C6C-8ACA-EA33C49ACF0E" typeRef="boolean">
+                <dmn:text>Passenger.unaccompanied minor</dmn:text>
+              </dmn:inputExpression>
+            </dmn:input>
+            <dmn:output id="_12EA2D41-5F8B-4F1F-A195-EFD0C388A876"/>
+            <dmn:annotation name="annotation-1"/>
+            <dmn:rule id="_FBDAD439-BD9E-4112-9F48-DA69250F50CA">
+              <dmn:inputEntry id="_33F9F2B2-00C6-4426-9479-53C5CD2C3ECE">
+                <dmn:text>"DL"</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_E1BB4353-C073-47D1-B195-D29EB5E45281">
+                <dmn:text>false</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_C3CD4324-31BB-4078-B51C-FC6276E147BE">
+                <dmn:text>&lt;=9</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_CC983356-D3D7-4F02-8DD0-2EB271302697">
+                <dmn:text>false</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_002C048E-F507-4C2A-9766-4BB09B7FD3E4">
+                <dmn:text>true</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_426FF6AC-C374-402A-BE69-A8668065A1D0">
+                <dmn:text>false</dmn:text>
+              </dmn:inputEntry>
+              <dmn:outputEntry id="_58092D49-68FB-4D6C-96D7-B5A712DAE744">
+                <dmn:text>true</dmn:text>
+              </dmn:outputEntry>
+              <dmn:annotationEntry>
+                <dmn:text/>
+              </dmn:annotationEntry>
+            </dmn:rule>
+            <dmn:rule id="_8A519DB9-E545-4393-9011-C28CFCCC0C33">
+              <dmn:inputEntry id="_776B23D6-55BB-47FA-BC79-930C7BC24EB0">
+                <dmn:text>"DC"</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_0859CA6E-93A5-4173-B95D-F72BE0CE8A9E">
+                <dmn:text>false</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_BB4811FD-97EB-48FD-80F5-4C5498410060">
+                <dmn:text>&lt;=9</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_BD6148F5-FB46-499D-A049-23EF1E883EBE">
+                <dmn:text>false</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_F83A6430-A007-49B5-AB55-807A72EC6B21">
+                <dmn:text>true</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_00571024-60C9-4086-9898-0D201F74ADDC">
+                <dmn:text>false</dmn:text>
+              </dmn:inputEntry>
+              <dmn:outputEntry id="_EF8B285D-F28A-4F3B-A5E9-AC1B2C1F93D7">
+                <dmn:text>true</dmn:text>
+              </dmn:outputEntry>
+              <dmn:annotationEntry>
+                <dmn:text/>
+              </dmn:annotationEntry>
+            </dmn:rule>
+            <dmn:rule id="_8D76BF43-4CA2-4501-A00C-24CC4F6F6865">
+              <dmn:inputEntry id="_1277428E-F4DB-4E96-AA97-63F66FE49704">
+                <dmn:text>-</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_B57528EC-7A44-4B7C-A7C2-92467F352456">
+                <dmn:text>-</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_0C493B03-F5C0-4BC5-8652-47BC59811E8D">
+                <dmn:text>-</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_660BC3CD-D1DE-47B9-9EB9-0AD2F4C13C59">
+                <dmn:text>-</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_AA8D5828-4AB6-4F64-A305-69169C3C95C4">
+                <dmn:text>-</dmn:text>
+              </dmn:inputEntry>
+              <dmn:inputEntry id="_C22D667D-ABDA-4969-A965-24B308EBD3E8">
+                <dmn:text>-</dmn:text>
+              </dmn:inputEntry>
+              <dmn:outputEntry id="_2B44E871-42B5-4EB8-9735-B7EF1441D2B8">
+                <dmn:text>false</dmn:text>
+              </dmn:outputEntry>
+              <dmn:annotationEntry>
+                <dmn:text/>
+              </dmn:annotationEntry>
+            </dmn:rule>
+          </dmn:decisionTable>
+        </dmn:functionDefinition>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_E40856D2-6CB9-4896-8C76-44023802EF72">
+          <dmn:text>for p in Flight.passengers
+    return context put(p, "qualifiedFlyer", getEligiblePassengers(p))</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_5566B41E-2D68-4006-A890-16E50DBD1887" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_0DA58D54-A2BA-45EE-902B-91DFD9297B14">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>223</kie:width>
+            <kie:width>514</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6A893A9C-B3DB-455F-A7C2-4603D05E2E70">
+            <kie:width>50</kie:width>
+            <kie:width>406</kie:width>
+            <kie:width>158</kie:width>
+            <kie:width>429</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6C42D77D-2E07-47C8-A2C4-F9340F74466C">
+            <kie:width>50</kie:width>
+            <kie:width>173</kie:width>
+            <kie:width>1142</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_83788199-B227-4196-B724-F0C5B6494698">
+            <kie:width>1142</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_465E349F-3764-4E41-9EAF-22BF15D428E5">
+            <kie:width>1142</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_1EED163C-8642-4DFD-9778-49A10A9E996C">
+            <kie:width>1142</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B47ADD8D-5B84-46C5-BF0F-DFE467B9B89F">
+            <kie:width>50</kie:width>
+            <kie:width>173</kie:width>
+            <kie:width>1699</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6E3626F1-3C47-4BF8-8758-2FA6D7E612EE">
+            <kie:width>1699</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_754339B0-B9F6-4AA9-A133-5E25BBAFB10E">
+            <kie:width>50</kie:width>
+            <kie:width>1629</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_53B4E68D-47F7-4EC9-A078-BCD858BC4E01">
+            <kie:width>50</kie:width>
+            <kie:width>184</kie:width>
+            <kie:width>159</kie:width>
+            <kie:width>246</kie:width>
+            <kie:width>218</kie:width>
+            <kie:width>178</kie:width>
+            <kie:width>285</kie:width>
+            <kie:width>189</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E40856D2-6CB9-4896-8C76-44023802EF72">
+            <kie:width>1699</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_AF7C8AB0-FE87-48F2-A546-DF09A66DF832" dmnElementRef="_AF7C8AB0-FE87-48F2-A546-DF09A66DF832" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="616.2990654205607" y="2.0000000000001137" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_D5851A3F-AA48-4C39-88D7-7730530A9AE2" dmnElementRef="_D5851A3F-AA48-4C39-88D7-7730530A9AE2" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="879" y="463" width="132" height="70"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_00AB9B12-9D89-4618-BD18-822B53FD3BA4" dmnElementRef="_00AB9B12-9D89-4618-BD18-822B53FD3BA4" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="531" y="240" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_70EC4650-A7D0-4E54-BA0F-A76088699298" dmnElementRef="_70EC4650-A7D0-4E54-BA0F-A76088699298" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="895" y="325" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_9E14A6A4-85FE-466A-9504-A509AE4C9CD2" dmnElementRef="_9E14A6A4-85FE-466A-9504-A509AE4C9CD2" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="822" y="75" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_BE887410-2C41-4D33-8D45-77A45A717777" dmnElementRef="_BE887410-2C41-4D33-8D45-77A45A717777">
+        <di:waypoint x="945" y="375"/>
+        <di:waypoint x="945" y="463"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_850C411D-CBAD-4ED9-96E2-1AA05DAB1277-AUTO-TARGET" dmnElementRef="_850C411D-CBAD-4ED9-96E2-1AA05DAB1277">
+        <di:waypoint x="666.2990654205607" y="27.000000000000114"/>
+        <di:waypoint x="945" y="463"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_1E0F801B-8739-4A88-ACCE-3DE2AEDA3914-AUTO-SOURCE" dmnElementRef="_1E0F801B-8739-4A88-ACCE-3DE2AEDA3914">
+        <di:waypoint x="666.2990654205607" y="52.000000000000114"/>
+        <di:waypoint x="581" y="265"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_C9D8F338-CD2A-4B85-9BDB-DE443C0BF77E-AUTO-TARGET" dmnElementRef="_C9D8F338-CD2A-4B85-9BDB-DE443C0BF77E">
+        <di:waypoint x="666.2990654205607" y="27.000000000000114"/>
+        <di:waypoint x="945" y="325"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_6BE573D2-B46E-4F3D-A0F8-1C24A330B696" dmnElementRef="_6BE573D2-B46E-4F3D-A0F8-1C24A330B696">
+        <di:waypoint x="666.2990654205607" y="27.000000000000114"/>
+        <di:waypoint x="872" y="100"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
