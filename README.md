@@ -88,7 +88,8 @@ Once the service is up and running, you can use the following example to interac
 
 # Local address for testing
 
-```curl -X 'POST' 'http://localhost:8080/Flight_recognition' -H 'accept: application/json' -H 'Content-Type: application/json' \
+```
+curl -X 'POST' 'http://localhost:8080/Flight_recognition' -H 'accept: application/json' -H 'Content-Type: application/json' \
     -d '{
         "Flight": {
             "Flight Carrier": "DL",
