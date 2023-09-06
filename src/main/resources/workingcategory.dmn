@@ -1968,7 +1968,7 @@
           <dmn:text>4</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
-          <dmn:text>Flights less than 250 miles, only 4 needed for recognition</dmn:text>
+          <dmn:text/>
         </dmn:annotationEntry>
       </dmn:rule>
       <dmn:rule id="_30E81953-C1F0-4A2B-A61E-0C042D02F023">
@@ -1979,7 +1979,7 @@
           <dmn:text>6</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
-          <dmn:text>Flights between 251 and 499 miles, 6 for recognition</dmn:text>
+          <dmn:text/>
         </dmn:annotationEntry>
       </dmn:rule>
       <dmn:rule id="_AD3CE2B4-7D64-4CF1-A062-7E29B9E5F21A">
@@ -1990,7 +1990,7 @@
           <dmn:text>15</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
-          <dmn:text>Flights between 500 and 899, 15 eligible for recognition</dmn:text>
+          <dmn:text/>
         </dmn:annotationEntry>
       </dmn:rule>
       <dmn:rule id="_90D916D4-6DF3-4A0D-AC9A-B1D8D4E497E1">
@@ -2001,7 +2001,7 @@
           <dmn:text>20</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
-          <dmn:text>Flights over 900 miles, 20 are eligible for recognition</dmn:text>
+          <dmn:text/>
         </dmn:annotationEntry>
       </dmn:rule>
     </dmn:decisionTable>
