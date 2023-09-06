@@ -1946,6 +1946,66 @@
       </dmn:contextEntry>
     </dmn:context>
   </dmn:decision>
+  <dmn:decision id="_CAA39364-0170-4898-9159-49849C4277F8" name="numberForRecognition">
+    <dmn:extensionElements/>
+    <dmn:variable id="_1C64DB66-785C-4BB8-AF34-C9D7D6B8F508" name="numberForRecognition" typeRef="number"/>
+    <dmn:informationRequirement id="_72086A0C-52EF-4AAE-9C60-0EE1EE798472">
+      <dmn:requiredInput href="#_AF7C8AB0-FE87-48F2-A546-DF09A66DF832"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_C60999E2-D5B0-43E1-91CA-C1CC859376C9" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_E08CA14C-BB37-475E-89E3-6FF45298B8CD">
+        <dmn:inputExpression id="_F77181B5-92D6-40E3-9896-7D1B029417A6" typeRef="number">
+          <dmn:text>Flight.distance</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_E96B7FDA-EFE9-4708-9891-234ED7896077"/>
+      <dmn:annotation name="Rule information"/>
+      <dmn:rule id="_C654269A-7946-4F78-94A5-3CD2A1743F4A">
+        <dmn:inputEntry id="_B4242656-E70B-4133-8BDA-4A46B0204DEC">
+          <dmn:text>&lt;=250</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_2A04E401-8214-4623-A211-75D859E943C5">
+          <dmn:text>4</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Flights less than 250 miles, only 4 needed for recognition</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_30E81953-C1F0-4A2B-A61E-0C042D02F023">
+        <dmn:inputEntry id="_876982AE-70A8-4C69-8C57-531EF53A18A7">
+          <dmn:text>[251..499]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_396DC260-0E64-4D97-BD15-05E429EDF429">
+          <dmn:text>6</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Flights between 251 and 499 miles, 6 for recognition</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_AD3CE2B4-7D64-4CF1-A062-7E29B9E5F21A">
+        <dmn:inputEntry id="_2A0E550C-CB26-4B56-AD78-19095B18EE67">
+          <dmn:text>[500..899]</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_5FDD4243-897A-450A-8D0A-7FB09936D997">
+          <dmn:text>15</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Flights between 500 and 899, 15 eligible for recognition</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_90D916D4-6DF3-4A0D-AC9A-B1D8D4E497E1">
+        <dmn:inputEntry id="_C6A08B1A-6795-42C4-B9D6-3483BD4E9A88">
+          <dmn:text>&gt;900</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_9F29E0CF-B92B-4F98-8D55-CA5BDDD26700">
+          <dmn:text>20</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text>Flights over 900 miles, 20 are eligible for recognition</dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_5566B41E-2D68-4006-A890-16E50DBD1887" name="DRG">
       <di:extension>
@@ -2047,6 +2107,12 @@
           <kie:ComponentWidths dmnElementRef="_527A1014-D0A7-44C0-A162-399FE94F3FC6">
             <kie:width>1852</kie:width>
           </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C60999E2-D5B0-43E1-91CA-C1CC859376C9">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>223</kie:width>
+            <kie:width>514</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="dmnshape-drg-_AF7C8AB0-FE87-48F2-A546-DF09A66DF832" dmnElementRef="_AF7C8AB0-FE87-48F2-A546-DF09A66DF832" isCollapsed="false">
@@ -2064,7 +2130,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="531" y="240" width="100" height="50"/>
+        <dc:Bounds x="618" y="80" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_799B9EF2-0866-4E9F-AF68-C4E9DBC0D5FE" dmnElementRef="_799B9EF2-0866-4E9F-AF68-C4E9DBC0D5FE" isCollapsed="false">
@@ -2073,7 +2139,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="752" y="64" width="100" height="50"/>
+        <dc:Bounds x="770" y="80" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_80DCA4C8-BB7D-418E-8491-0BE29E437F19" dmnElementRef="_80DCA4C8-BB7D-418E-8491-0BE29E437F19" isCollapsed="false">
@@ -2082,7 +2148,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="797.8472137451172" y="156" width="100" height="50"/>
+        <dc:Bounds x="770" y="152" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_96276FC3-13BB-48D2-8B95-30C55F3E8807" dmnElementRef="_96276FC3-13BB-48D2-8B95-30C55F3E8807" isCollapsed="false">
@@ -2091,24 +2157,37 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="804" y="241" width="100" height="50"/>
+        <dc:Bounds x="770" y="224" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_CAA39364-0170-4898-9159-49849C4277F8" dmnElementRef="_CAA39364-0170-4898-9159-49849C4277F8" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="466" y="80" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_1E0F801B-8739-4A88-ACCE-3DE2AEDA3914-AUTO-SOURCE" dmnElementRef="_1E0F801B-8739-4A88-ACCE-3DE2AEDA3914">
         <di:waypoint x="666.2990654205607" y="52.000000000000114"/>
-        <di:waypoint x="581" y="265"/>
+        <di:waypoint x="668" y="105"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_01EE0595-E9CF-4075-9F4C-DD0B6D4CFA0E-AUTO-TARGET" dmnElementRef="_01EE0595-E9CF-4075-9F4C-DD0B6D4CFA0E">
         <di:waypoint x="666.2990654205607" y="27.000000000000114"/>
-        <di:waypoint x="802" y="64"/>
+        <di:waypoint x="820" y="80"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_CF9CCC42-7B51-44B6-BF7A-964C7532DB2F-AUTO-TARGET" dmnElementRef="_CF9CCC42-7B51-44B6-BF7A-964C7532DB2F">
-        <di:waypoint x="802" y="89"/>
-        <di:waypoint x="847.8472137451172" y="156"/>
+        <di:waypoint x="820" y="105"/>
+        <di:waypoint x="820" y="152"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_280F12F3-307D-4EBB-8B3D-B14EC23E9590-AUTO-TARGET" dmnElementRef="_280F12F3-307D-4EBB-8B3D-B14EC23E9590">
-        <di:waypoint x="847.8472137451172" y="181"/>
-        <di:waypoint x="854" y="241"/>
+        <di:waypoint x="820" y="177"/>
+        <di:waypoint x="820" y="224"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_72086A0C-52EF-4AAE-9C60-0EE1EE798472-AUTO-TARGET" dmnElementRef="_72086A0C-52EF-4AAE-9C60-0EE1EE798472">
+        <di:waypoint x="666.2990654205607" y="27.000000000000114"/>
+        <di:waypoint x="516" y="80"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
