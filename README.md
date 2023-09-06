@@ -86,136 +86,7 @@ Once the service is up and running, you can use the following example to interac
 
 ### POST /Flight_recognition
 
-Returns recognitions from the given inputs
-
-Given inputs:
-
-```json
-{
-  "Flight": {
-    "Flight Carrier": "DL",
-    "flight time": "09:30",
-    "flight date": "2023-09-05",
-    "distance": 580,
-    "passengers": [
-      {
-        "milestone multiple": 0,
-        "delay": true,
-        "is a 360 member": true,
-        "days since last Delta flight": 0,
-        "IROP severity level": 0,
-        "days since SkyMiles member": 0,
-        "days since new tier": 0,
-        "quarantined": true,
-        "medallion member": true,
-        "corporate flyer": true,
-        "military": false,
-        "age": 35,
-        "group booking size": 2,
-        "employee": false,
-        "unaccompanied minor": false,
-        "infant": false,
-        "skymiles member": true,
-        "seat": 22,
-        "last reveived recognition": "2021-02-17",
-        "million miler": false,
-        "status": "Diamond",
-        "missed connection": true,
-        "name": "Don Jones",
-        "last delta flight": "2023-01-28",
-        "days since last IROP": 0,
-        "hours since last misconnect": 2
-      },
-      {
-        "milestone multiple": 0,
-        "delay": true,
-        "is a 360 member": true,
-        "days since last Delta flight": 0,
-        "IROP severity level": 0,
-        "days since SkyMiles member": 0,
-        "days since new tier": 0,
-        "quarantined": false,
-        "medallion member": true,
-        "corporate flyer": true,
-        "military": false,
-        "age": 35,
-        "group booking size": 2,
-        "employee": false,
-        "unaccompanied minor": false,
-        "infant": false,
-        "skymiles member": true,
-        "seat": 22,
-        "last reveived recognition": "2021-02-17",
-        "million miler": false,
-        "status": "Diamond",
-        "missed connection": true,
-        "name": "Ron Jones",
-        "last delta flight": "2023-01-28",
-        "days since last IROP": 0,
-        "hours since last misconnect": 2
-      },
-      {
-        "milestone multiple": 0,
-        "delay": true,
-        "is a 360 member": true,
-        "days since last Delta flight": 0,
-        "IROP severity level": 0,
-        "days since SkyMiles member": 0,
-        "days since new tier": 1778,
-        "quarantined": false,
-        "medallion member": true,
-        "corporate flyer": true,
-        "military": false,
-        "age": 35,
-        "group booking size": 2,
-        "employee": false,
-        "unaccompanied minor": false,
-        "infant": false,
-        "skymiles member": true,
-        "seat": 10,
-        "last reveived recognition": "2022-09-05",
-        "million miler": false,
-        "status": "Gold",
-        "missed connection": true,
-        "name": "Jane Doe",
-        "last delta flight": "2023-06-15",
-        "days since last IROP": 15,
-        "hours since last misconnect": 19
-      },
-      {
-        "milestone multiple": 2,
-        "delay": false,
-        "is a 360 member": false,
-        "days since last Delta flight": 0,
-        "IROP severity level": 0,
-        "days since SkyMiles member": 0,
-        "days since new tier": 0,
-        "quarantined": false,
-        "medallion member": false,
-        "corporate flyer": false,
-        "military": false,
-        "age": 27,
-        "group booking size": 7,
-        "employee": false,
-        "unaccompanied minor": false,
-        "infant": false,
-        "skymiles member": true,
-        "seat": 46,
-        "last reveived recognition": "2022-09-05",
-        "million miler": false,
-        "status": "Silver",
-        "missed connection": false,
-        "name": "Sally Edwards",
-        "last delta flight": "2021-03-19",
-        "days since last IROP": 10,
-        "hours since last misconnect": 4
-      }
-    ]
-  }
-}
-```
-
-Curl command (using the JSON object above):
+# Local address for testing
 
 ```curl -X 'POST' 'http://localhost:8080/Flight_recognition' -H 'accept: application/json' -H 'Content-Type: application/json' \
     -d '{
@@ -247,7 +118,7 @@ Curl command (using the JSON object above):
                     "last reveived recognition": "2021-02-17",
                     "million miler": false,
                     "status": "Diamond",
-                    "missed connection": true,
+                    "missed connection": false,
                     "name": "Don Jones",
                     "last delta flight": "2023-01-28",
                     "days since last IROP": 0,
@@ -275,7 +146,7 @@ Curl command (using the JSON object above):
                     "last reveived recognition": "2021-02-17",
                     "million miler": false,
                     "status": "Diamond",
-                    "missed connection": true,
+                    "missed connection": false,
                     "name": "Ron Jones",
                     "last delta flight": "2023-01-28",
                     "days since last IROP": 0,
