@@ -19,18 +19,14 @@
     </dmn:itemComponent>
   </dmn:itemDefinition>
   <dmn:itemDefinition id="_048BE287-F35E-47BA-A47C-3CF7D763A086" name="Passenger" isCollection="false">
-    <dmn:itemComponent id="_E6A4A68F-1DF0-43E1-B88F-0B614F0144B7" name="days since last IROP" isCollection="false">
-      <dmn:typeRef>number</dmn:typeRef>
+    <dmn:itemComponent id="_FC788088-DFB7-4F98-A96F-DF4F6C470E08" name="name" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
     </dmn:itemComponent>
+    <dmn:itemComponent id="_E6A4A68F-1DF0-43E1-B88F-0B614F0144B7" name="days since last IROP" isCollection="false"/>
     <dmn:itemComponent id="_F3F9E2B7-7DDD-404F-942D-AE18DA1E22EC" name="milestone multiple" isCollection="false">
       <dmn:typeRef>number</dmn:typeRef>
     </dmn:itemComponent>
-    <dmn:itemComponent id="_12076EC7-6F15-4F27-B5B1-8CF8AEEAE9B0" name="hours since last misconnect" isCollection="false">
-      <dmn:typeRef>number</dmn:typeRef>
-    </dmn:itemComponent>
-    <dmn:itemComponent id="_ACA478C1-FE9A-427C-9D04-0D3F07198AC7" name="priority" isCollection="false">
-      <dmn:typeRef>number</dmn:typeRef>
-    </dmn:itemComponent>
+    <dmn:itemComponent id="_12076EC7-6F15-4F27-B5B1-8CF8AEEAE9B0" name="hours since last misconnect" isCollection="false"/>
     <dmn:itemComponent id="_58B2E806-FB76-4DFB-BB59-C8700D84EFE4" name="delay" isCollection="false">
       <dmn:typeRef>boolean</dmn:typeRef>
     </dmn:itemComponent>
@@ -88,17 +84,11 @@
     <dmn:itemComponent id="_44375F58-C95A-40D6-8B73-A02885334568" name="million miler" isCollection="false">
       <dmn:typeRef>boolean</dmn:typeRef>
     </dmn:itemComponent>
-    <dmn:itemComponent id="_C60D4CF6-28D4-48F1-ADCD-9A2472ADEEDA" name="status" isCollection="false">
+    <dmn:itemComponent id="_C53C7AC1-236D-4DAE-A2F1-B8E408241BD4" name="status" isCollection="false">
       <dmn:typeRef>string</dmn:typeRef>
-      <dmn:allowedValues kie:constraintType="enumeration" id="_55A3672C-8C46-448F-9D6B-5641B6B784D4">
-        <dmn:text>"Diamond", "Platinum", "Gold", "Silver", "None"</dmn:text>
-      </dmn:allowedValues>
     </dmn:itemComponent>
     <dmn:itemComponent id="_313A3C85-57B9-4A19-8CFB-03502145376E" name="missed connection" isCollection="false">
       <dmn:typeRef>boolean</dmn:typeRef>
-    </dmn:itemComponent>
-    <dmn:itemComponent id="_FC788088-DFB7-4F98-A96F-DF4F6C470E08" name="name" isCollection="false">
-      <dmn:typeRef>string</dmn:typeRef>
     </dmn:itemComponent>
   </dmn:itemDefinition>
   <dmn:inputData id="_AF7C8AB0-FE87-48F2-A546-DF09A66DF832" name="Flight">
@@ -287,6 +277,9 @@
     <dmn:variable id="_8C98EF39-3AD2-4CC1-8AFC-B6B3C2161BFC" name="priorityList" typeRef="Any"/>
     <dmn:informationRequirement id="_CF9CCC42-7B51-44B6-BF7A-964C7532DB2F">
       <dmn:requiredDecision href="#_799B9EF2-0866-4E9F-AF68-C4E9DBC0D5FE"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_4A8BFD8B-3875-4FCE-9D82-330EB0E2D844">
+      <dmn:requiredInput href="#_AF7C8AB0-FE87-48F2-A546-DF09A66DF832"/>
     </dmn:informationRequirement>
     <dmn:context id="_D336E48F-FEE4-4C41-8C3B-B0131D926766">
       <dmn:contextEntry>
@@ -2073,7 +2066,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_ED36D16A-58F3-4ACC-BF99-834CD4A66B8B">
-                <dmn:text>(7300 - passenger.days since last IROP) / 100000)</dmn:text>
+                <dmn:text>(7300 - passenger.days since last IROP) / 100000</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -2214,7 +2207,7 @@
                 <dmn:text>-</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_E748D1D6-04D5-46B7-8D58-2BAAE155F7F6">
-                <dmn:text>0</dmn:text>
+                <dmn:text>passenger.priority</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -2406,7 +2399,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="616.2990654205607" y="2.0000000000001137" width="100" height="50"/>
+        <dc:Bounds x="490.29906542056074" y="112.34210526315789" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_00AB9B12-9D89-4618-BD18-822B53FD3BA4" dmnElementRef="_00AB9B12-9D89-4618-BD18-822B53FD3BA4" isCollapsed="false">
@@ -2415,7 +2408,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="618" y="80" width="100" height="50"/>
+        <dc:Bounds x="578" y="7" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_799B9EF2-0866-4E9F-AF68-C4E9DBC0D5FE" dmnElementRef="_799B9EF2-0866-4E9F-AF68-C4E9DBC0D5FE" isCollapsed="false">
@@ -2424,7 +2417,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="770" y="80" width="100" height="50"/>
+        <dc:Bounds x="401" y="234" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_80DCA4C8-BB7D-418E-8491-0BE29E437F19" dmnElementRef="_80DCA4C8-BB7D-418E-8491-0BE29E437F19" isCollapsed="false">
@@ -2433,7 +2426,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="770" y="152" width="100" height="50"/>
+        <dc:Bounds x="578" y="234" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_96276FC3-13BB-48D2-8B95-30C55F3E8807" dmnElementRef="_96276FC3-13BB-48D2-8B95-30C55F3E8807" isCollapsed="false">
@@ -2442,7 +2435,7 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="770" y="224" width="100" height="50"/>
+        <dc:Bounds x="578" y="324" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_CAA39364-0170-4898-9159-49849C4277F8" dmnElementRef="_CAA39364-0170-4898-9159-49849C4277F8" isCollapsed="false">
@@ -2451,28 +2444,32 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="466" y="80" width="100" height="50"/>
+        <dc:Bounds x="410" y="7" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_1E0F801B-8739-4A88-ACCE-3DE2AEDA3914-AUTO-SOURCE" dmnElementRef="_1E0F801B-8739-4A88-ACCE-3DE2AEDA3914">
-        <di:waypoint x="666.2990654205607" y="52.000000000000114"/>
-        <di:waypoint x="668" y="105"/>
+        <di:waypoint x="540.2990654205607" y="162.3421052631579"/>
+        <di:waypoint x="628" y="32"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_01EE0595-E9CF-4075-9F4C-DD0B6D4CFA0E-AUTO-TARGET" dmnElementRef="_01EE0595-E9CF-4075-9F4C-DD0B6D4CFA0E">
-        <di:waypoint x="666.2990654205607" y="27.000000000000114"/>
-        <di:waypoint x="820" y="80"/>
+        <di:waypoint x="540.2990654205607" y="137.3421052631579"/>
+        <di:waypoint x="451" y="234"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_CF9CCC42-7B51-44B6-BF7A-964C7532DB2F-AUTO-TARGET" dmnElementRef="_CF9CCC42-7B51-44B6-BF7A-964C7532DB2F">
-        <di:waypoint x="820" y="105"/>
-        <di:waypoint x="820" y="152"/>
+        <di:waypoint x="451" y="259"/>
+        <di:waypoint x="628" y="234"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_4A8BFD8B-3875-4FCE-9D82-330EB0E2D844-AUTO-TARGET" dmnElementRef="_4A8BFD8B-3875-4FCE-9D82-330EB0E2D844">
+        <di:waypoint x="540.2990654205607" y="137.3421052631579"/>
+        <di:waypoint x="628" y="234"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_280F12F3-307D-4EBB-8B3D-B14EC23E9590-AUTO-TARGET" dmnElementRef="_280F12F3-307D-4EBB-8B3D-B14EC23E9590">
-        <di:waypoint x="820" y="177"/>
-        <di:waypoint x="820" y="224"/>
+        <di:waypoint x="628" y="259"/>
+        <di:waypoint x="628" y="324"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_72086A0C-52EF-4AAE-9C60-0EE1EE798472-AUTO-TARGET" dmnElementRef="_72086A0C-52EF-4AAE-9C60-0EE1EE798472">
-        <di:waypoint x="666.2990654205607" y="27.000000000000114"/>
-        <di:waypoint x="516" y="80"/>
+        <di:waypoint x="540.2990654205607" y="137.3421052631579"/>
+        <di:waypoint x="460" y="7"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
