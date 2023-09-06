@@ -102,9 +102,9 @@
     <dmn:extensionElements/>
     <dmn:variable id="_309862D9-26B1-4739-A559-BDC949892F59" name="Flight" typeRef="flight"/>
   </dmn:inputData>
-  <dmn:decision id="_00AB9B12-9D89-4618-BD18-822B53FD3BA4" name="Eligible flight">
+  <dmn:decision id="_00AB9B12-9D89-4618-BD18-822B53FD3BA4" name="eligibleFlight">
     <dmn:extensionElements/>
-    <dmn:variable id="_720B18EB-2397-4B53-B2BF-E39DB6004804" name="Eligible flight" typeRef="boolean"/>
+    <dmn:variable id="_720B18EB-2397-4B53-B2BF-E39DB6004804" name="eligibleFlight" typeRef="boolean"/>
     <dmn:informationRequirement id="_1E0F801B-8739-4A88-ACCE-3DE2AEDA3914">
       <dmn:requiredInput href="#_AF7C8AB0-FE87-48F2-A546-DF09A66DF832"/>
     </dmn:informationRequirement>
@@ -297,11 +297,6 @@
         <dmn:functionDefinition id="_4DFFA60E-96E7-4FED-A89B-73C1E4AAF9E6" kind="FEEL">
           <dmn:formalParameter id="_E236CC7A-05F7-4F31-89F2-2018D61D5A3B" name="passenger" typeRef="Any"/>
           <dmn:decisionTable id="_68B6E132-778F-4876-A29F-9D8F787AD2C1" hitPolicy="FIRST" preferredOrientation="Rule-as-Row">
-            <dmn:input id="_7A2E4980-0264-4420-9E18-DF2ED19F86A6">
-              <dmn:inputExpression id="_E2E2133B-52C8-4E40-A3C6-211DC0B22B8D" typeRef="boolean">
-                <dmn:text>Eligible flight</dmn:text>
-              </dmn:inputExpression>
-            </dmn:input>
             <dmn:input id="_CCAF1257-D5CD-4FFA-8B17-0410D98C60B7">
               <dmn:inputExpression id="_9E31BD96-D555-453C-B3B5-F8818A2FF913" typeRef="number">
                 <dmn:text>passenger.age</dmn:text>
@@ -365,9 +360,6 @@
             <dmn:output id="_99C5B920-5BAE-4D8B-8BAC-932C80EF3D5A"/>
             <dmn:annotation name="annotation-1"/>
             <dmn:rule id="_F011033E-2FE3-4402-9019-AF68F7A5968C">
-              <dmn:inputEntry id="_6E2E3748-6A34-4C8B-8C33-661A4DCAE726">
-                <dmn:text>true</dmn:text>
-              </dmn:inputEntry>
               <dmn:inputEntry id="_DB2F6015-043F-4943-A0EF-C04E8757B2D5">
                 <dmn:text>-</dmn:text>
               </dmn:inputEntry>
@@ -412,9 +404,6 @@
               </dmn:annotationEntry>
             </dmn:rule>
             <dmn:rule id="_973B7E9B-14E2-4FC7-B401-F3DDF2887571">
-              <dmn:inputEntry id="_5B6E337F-6F83-4777-A1A7-7086E297086F">
-                <dmn:text>true</dmn:text>
-              </dmn:inputEntry>
               <dmn:inputEntry id="_142756CB-8BF5-425E-873A-430A28738BA8">
                 <dmn:text>&gt;=18</dmn:text>
               </dmn:inputEntry>
@@ -459,9 +448,6 @@
               </dmn:annotationEntry>
             </dmn:rule>
             <dmn:rule id="_CCA9E0F1-FA57-4DD2-940C-68C2E4B36DA8">
-              <dmn:inputEntry id="_5D14572F-5027-4528-8FAE-BAC86BE97DD9">
-                <dmn:text>true</dmn:text>
-              </dmn:inputEntry>
               <dmn:inputEntry id="_0D7A5794-194E-43EA-9297-FD9ED08D771D">
                 <dmn:text>&gt;=21</dmn:text>
               </dmn:inputEntry>
@@ -506,9 +492,6 @@
               </dmn:annotationEntry>
             </dmn:rule>
             <dmn:rule id="_5ACA21EE-1DD1-4965-8601-C98E3188DE0C">
-              <dmn:inputEntry id="_CAEADC3A-FC95-4C0D-B7DB-79782B6641AF">
-                <dmn:text>true</dmn:text>
-              </dmn:inputEntry>
               <dmn:inputEntry id="_EE5A69FD-E398-43AB-B478-929BF0CF8249">
                 <dmn:text>&gt;=18</dmn:text>
               </dmn:inputEntry>
@@ -553,9 +536,6 @@
               </dmn:annotationEntry>
             </dmn:rule>
             <dmn:rule id="_A5B6BABF-E911-45ED-A0C3-AA75C642CBAA">
-              <dmn:inputEntry id="_D6DEBCA4-4BD5-44B7-A844-BD0F7F45C3E2">
-                <dmn:text>true</dmn:text>
-              </dmn:inputEntry>
               <dmn:inputEntry id="_37F6AD4C-1DB9-4C2B-932D-082C2B92AF2B">
                 <dmn:text>&gt;=18</dmn:text>
               </dmn:inputEntry>
@@ -600,9 +580,6 @@
               </dmn:annotationEntry>
             </dmn:rule>
             <dmn:rule id="_738D9DEF-E44A-4F59-B38A-E4C7B4694E15">
-              <dmn:inputEntry id="_E263E3BA-EFEA-4A57-BE7B-D366DDD6BAF9">
-                <dmn:text>true</dmn:text>
-              </dmn:inputEntry>
               <dmn:inputEntry id="_1BE566F0-8850-452C-A634-9999578E9E81">
                 <dmn:text>&gt;=18</dmn:text>
               </dmn:inputEntry>
@@ -647,9 +624,6 @@
               </dmn:annotationEntry>
             </dmn:rule>
             <dmn:rule id="_3C96918E-83EE-4ACC-A397-005E2BD48637">
-              <dmn:inputEntry id="_49B0B234-EEEE-4E97-8F37-4DFF625DC1B6">
-                <dmn:text>true</dmn:text>
-              </dmn:inputEntry>
               <dmn:inputEntry id="_1E2E1EB1-D1EC-459C-8613-D558A0DE2D84">
                 <dmn:text>&gt;=18</dmn:text>
               </dmn:inputEntry>
@@ -694,9 +668,6 @@
               </dmn:annotationEntry>
             </dmn:rule>
             <dmn:rule id="_5E70F518-91B2-4B2E-8CA7-453B8D2C0913">
-              <dmn:inputEntry id="_ABCF8FE8-9970-41CC-AEA4-DBCFE23FC9F6">
-                <dmn:text>true</dmn:text>
-              </dmn:inputEntry>
               <dmn:inputEntry id="_F1BBCCE0-DE1E-4F60-A198-00CC25043D5C">
                 <dmn:text>&gt;=18</dmn:text>
               </dmn:inputEntry>
@@ -741,9 +712,6 @@
               </dmn:annotationEntry>
             </dmn:rule>
             <dmn:rule id="_04938A64-EF38-4D4E-83BE-846BB35C40F5">
-              <dmn:inputEntry id="_3C73C57F-9F3E-4DF0-90B6-A51AB8BF9213">
-                <dmn:text>-</dmn:text>
-              </dmn:inputEntry>
               <dmn:inputEntry id="_58CE0F79-91D6-4028-B980-BDA86022529A">
                 <dmn:text>-</dmn:text>
               </dmn:inputEntry>
@@ -927,7 +895,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_DEF5129E-BEA2-45BB-92E2-989C5D026B80">
-                <dmn:text>Passenger.milestone multiple / 100</dmn:text>
+                <dmn:text>passenger.milestone multiple / 100</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1585,7 +1553,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_2516878B-2414-4CEC-8D44-23D28B78D586">
-                <dmn:text>(100 - Passenger.seat) / 10000</dmn:text>
+                <dmn:text>(100 - passenger.seat) / 10000</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1632,7 +1600,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_5ECE687B-58C1-4078-B8B7-B59F4E770511">
-                <dmn:text>(100 - Passenger.seat) / 10000</dmn:text>
+                <dmn:text>(100 - passenger.seat) / 10000</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1773,7 +1741,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_F3383292-0EE9-4165-873D-CB63AB22BB1A">
-                <dmn:text>(100 - Passenger.seat) / 1000</dmn:text>
+                <dmn:text>(100 - passenger.seat) / 1000</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1867,7 +1835,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_6B4F8F66-4153-452B-840E-9AE4CB8FBD80">
-                <dmn:text>Passenger.days since SkyMiles member / 10000</dmn:text>
+                <dmn:text>passenger.days since SkyMiles member / 10000</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1914,7 +1882,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_EB505441-622E-4155-BF04-2FA7E241E587">
-                <dmn:text>Passenger.IROP severity level / 10</dmn:text>
+                <dmn:text>passenger.IROP severity level / 10</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -2034,7 +2002,6 @@
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
             <kie:width>100</kie:width>
-            <kie:width>100</kie:width>
             <kie:width>162</kie:width>
             <kie:width>181</kie:width>
             <kie:width>100</kie:width>
@@ -2042,7 +2009,7 @@
             <kie:width>100</kie:width>
             <kie:width>137</kie:width>
             <kie:width>100</kie:width>
-            <kie:width>100</kie:width>
+            <kie:width>200</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_A0BAE5CF-65A2-4021-877F-F687E077A8DC">
             <kie:width>1852</kie:width>
