@@ -895,7 +895,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_DEF5129E-BEA2-45BB-92E2-989C5D026B80">
-                <dmn:text>+ passenger.milestone multiple / 100</dmn:text>
+                <dmn:text>passenger.milestone multiple / 100</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -942,7 +942,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_C437F180-666D-4469-8A0A-A155E357B334">
-                <dmn:text>+ 0.000000000000000000000000000000000001</dmn:text>
+                <dmn:text>0.000000000000000000000000000000000001</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -989,7 +989,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_17D8AABD-8AB1-4993-A5A2-A213A80C646E">
-                <dmn:text>+ 0.1</dmn:text>
+                <dmn:text>0.1</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1036,7 +1036,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_A64C2A33-74FB-4E07-BA42-811A212AAA22">
-                <dmn:text>+ 0.1</dmn:text>
+                <dmn:text>0.1</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1083,7 +1083,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_8015EBB7-782B-4713-9D38-80DFE3810910">
-                <dmn:text>+ 0.05</dmn:text>
+                <dmn:text>0.05</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1130,7 +1130,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_88E7AD1B-6CAB-4554-A6BE-F398837EF6BA">
-                <dmn:text>+ 0.05</dmn:text>
+                <dmn:text>0.05</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1177,7 +1177,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_D337B06B-7664-48AE-B1DA-E380F57EE39C">
-                <dmn:text>+ 0.04</dmn:text>
+                <dmn:text>0.04</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1224,7 +1224,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_6A0F9C72-5F8A-463A-8A86-5F8F0C284377">
-                <dmn:text>+ 0.04</dmn:text>
+                <dmn:text>0.04</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1271,7 +1271,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_00ED4198-886E-4AFD-991D-FD56D2AE8CB9">
-                <dmn:text>+ 0.03</dmn:text>
+                <dmn:text>0.03</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1318,7 +1318,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_11BB3A03-D2F5-4533-8CC2-C957643A4B13">
-                <dmn:text>+ 0.03</dmn:text>
+                <dmn:text>0.03</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1365,7 +1365,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_93970253-3E8F-4056-9880-0000A9CD0FA2">
-                <dmn:text>+ 0.02</dmn:text>
+                <dmn:text>0.02</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1412,7 +1412,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_64DEBAD8-73E4-481D-85CD-27E06F53DF91">
-                <dmn:text>+ 0.02</dmn:text>
+                <dmn:text>0.02</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1459,7 +1459,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_66AEA392-BBA5-40C8-9215-3CC2636D0AD3">
-                <dmn:text>+ 0.001</dmn:text>
+                <dmn:text>0.001</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1506,7 +1506,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_B314E35F-AE77-4895-8663-CEF2386F9E66">
-                <dmn:text>+ 0.001</dmn:text>
+                <dmn:text>0.001</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1553,7 +1553,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_2516878B-2414-4CEC-8D44-23D28B78D586">
-                <dmn:text>+ (100 - passenger.seat) / 10000</dmn:text>
+                <dmn:text>(100 - passenger.seat) / 10000</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1600,7 +1600,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_5ECE687B-58C1-4078-B8B7-B59F4E770511">
-                <dmn:text>+ (100 - passenger.seat) / 10000</dmn:text>
+                <dmn:text>(100 - passenger.seat) / 10000</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1647,7 +1647,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_E74EEC4B-3388-4632-9F95-FAE144A475F6">
-                <dmn:text>+ 0.00001</dmn:text>
+                <dmn:text>0.00001</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1694,7 +1694,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_409DC455-0A93-4F9F-9426-EAB72AB3803D">
-                <dmn:text>+ 0.00001</dmn:text>
+                <dmn:text>0.00001</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1741,7 +1741,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_F3383292-0EE9-4165-873D-CB63AB22BB1A">
-                <dmn:text>+ (100 - passenger.seat) / 1000</dmn:text>
+                <dmn:text>(100 - passenger.seat) / 1000</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1788,7 +1788,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_A9201EFF-7AFE-455A-9C09-4A9B51353634">
-                <dmn:text>+ 0.000001</dmn:text>
+                <dmn:text>0.000001</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1835,7 +1835,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_6B4F8F66-4153-452B-840E-9AE4CB8FBD80">
-                <dmn:text>+ passenger.days since SkyMiles member / 10000</dmn:text>
+                <dmn:text>passenger.days since SkyMiles member / 10000</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1882,7 +1882,7 @@
                 <dmn:text>true</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_EB505441-622E-4155-BF04-2FA7E241E587">
-                <dmn:text>+ passenger.IROP severity level / 10</dmn:text>
+                <dmn:text>passenger.IROP severity level / 10</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
@@ -1929,7 +1929,7 @@
                 <dmn:text>-</dmn:text>
               </dmn:inputEntry>
               <dmn:outputEntry id="_E748D1D6-04D5-46B7-8D58-2BAAE155F7F6">
-                <dmn:text>+ 0</dmn:text>
+                <dmn:text>0</dmn:text>
               </dmn:outputEntry>
               <dmn:annotationEntry>
                 <dmn:text/>
