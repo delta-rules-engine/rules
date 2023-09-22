@@ -1,0 +1,18 @@
+# This task writes a KieApp YAML Resource
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: fix-repo-permission
+spec:
+  workspaces:
+    - name: maven-repo
+      description: The .m2 repo volume
+    - name: source
+      description: The workspace consisting of maven project.
+  steps:
+  - name: fix-repo-permission
+    image: registry.redhat.io/ubi8/ubi-minimal
+    script: | 
+      # ensure the Arbitrary User used by tekton/openshift pipelines will be able write into the repo
+      chgrp -R 0 workspace/source/ workspace/maven-repo/
+      chmod -R g+rwX workspace/source workspace/maven-repo/

@@ -1,0 +1,41 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: kogito-cicd-pipeline
+  namespace: kogito
+spec:
+  params:
+    - default: 'https://github.com/delta-rules-engine/rules'
+      name: git-link
+      type: string
+  tasks:
+    - name: git-clone
+      params:
+        - name: url
+          value: $(params.git-link)
+        - name: deleteExisting
+          value: 'true'
+      taskRef:
+        kind: ClusterTask
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: shared-workspace
+    - name: openshift-deploy
+      params:
+        - name: SCRIPT
+          value: |-
+            oc delete kogitobuild.rhpam.kiegroup.org/rules
+            oc apply -f operator/rules.yaml
+        - name: VERSION
+          value: latest
+      runAfter:
+        - git-clone
+      taskRef:
+        kind: ClusterTask
+        name: openshift-client-1-10-0
+      workspaces:
+        - name: manifest-dir
+          workspace: shared-workspace
+  workspaces:
+    - name: shared-workspace

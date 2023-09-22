@@ -1,0 +1,26 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: kogito-trigger-template
+  namespace: kogito
+spec:
+  params:
+    - description: The git repository url
+      name: git-repo-url
+    - default: master
+      description: The git revision
+      name: git-revision
+    - description: The name of the deployment to be created / patched
+      name: git-repo-name
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: PipelineRun
+      metadata:
+        generateName: build-image-
+      spec:
+        pipelineRef:
+          name: ba-cicd-pipeline
+        workspaces:
+          - name: shared-workspace
+            persistentVolumeClaim:
+              claimName: source-workspace-pvc

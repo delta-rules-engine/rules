@@ -1,0 +1,179 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: kogito-pipeline
+spec:
+  params:
+    - default: 'https://github.com/timwuthenow/business-automation-cicd-showcase.git'
+      description: url of the git repo for the code of deployment
+      name: git-url
+      type: string
+    - default: master
+      description: revision to be used from repo of the code for deployment
+      name: git-revision
+      type: string
+    - default: >-
+        http://nexus3:8081/
+      description: maven repository url
+      name: maven-repo-url
+      type: string
+    - default: admin
+      description: maven repo username
+      name: maven-username
+      type: string
+    - default: password
+      description: maven repo password
+      name: maven-password
+      type: string
+  tasks:
+    - name: clean
+      taskRef:
+        kind: Task
+        name: clean
+      workspaces:
+        - name: source
+          workspace: shared-workspace
+        - name: maven-repo
+          workspace: maven-local-repo
+    - name: git-clone
+      params:
+        - name: url
+          value: $(params.git-url)
+        - name: deleteExisting
+          value: 'true'
+        - name: revision
+          value: $(params.git-revision)
+      runAfter:
+        - clean
+      taskRef:
+        kind: ClusterTask
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: shared-workspace
+    - name: prepare
+      runAfter:
+        - git-clone
+      taskRef:
+        kind: Task
+        name: fix-repo-permission
+      workspaces:
+        - name: source
+          workspace: shared-workspace
+        - name: maven-repo
+          workspace: maven-local-repo
+    - name: run-tests
+      params:
+        - name: NEXUS_REPO
+          value: $(params.maven-repo-url)
+        - name: MAVEN_PROJECT_CONTEXT_DIR
+          value: decisions-showcase
+        - name: GOALS
+          value:
+            - clean
+            - test
+      runAfter:
+        - prepare
+      taskRef:
+        kind: Task
+        name: mvn
+      workspaces:
+        - name: maven-repo
+          workspace: maven-local-repo
+        - name: maven-settings
+          workspace: maven-settings
+        - name: source
+          workspace: shared-workspace
+    - name: build-kjar
+      params:
+        - name: NEXUS_REPO
+          value: $(params.maven-repo-url)
+        - name: MAVEN_PROJECT_CONTEXT_DIR
+          value: decisions-showcase
+        - name: GOALS
+          value:
+            - install
+            - '-DskipTests'
+      runAfter:
+        - run-tests
+      taskRef:
+        kind: Task
+        name: mvn
+      workspaces:
+        - name: maven-repo
+          workspace: maven-local-repo
+        - name: maven-settings
+          workspace: maven-settings
+        - name: source
+          workspace: shared-workspace
+    - name: build-service
+      params:
+        - name: NEXUS_REPO
+          value: $(params.maven-repo-url)
+        - name: MAVEN_PROJECT_CONTEXT_DIR
+          value: business-application-service
+        - name: GOALS
+          value:
+            - clean
+            - package
+      runAfter:
+        - build-kjar
+      taskRef:
+        kind: Task
+        name: mvn
+      workspaces:
+        - name: maven-repo
+          workspace: maven-local-repo
+        - name: maven-settings
+          workspace: maven-settings
+        - name: source
+          workspace: shared-workspace
+    - name: build-container-img
+      params:
+        - name: NEXUS_REPO
+          value: $(params.maven-repo-url)
+        - name: MAVEN_PROJECT_CONTEXT_DIR
+          value: business-application-service
+        - name: GOALS
+          value: 'oc:build'
+      runAfter:
+        - build-service
+      taskRef:
+        kind: Task
+        name: mvn-jkube
+      workspaces:
+        - name: maven-repo
+          workspace: maven-local-repo
+        - name: maven-settings
+          workspace: maven-settings
+        - name: source
+          workspace: shared-workspace
+    - name: deploy
+      params:
+        - name: NEXUS_REPO
+          value: $(params.maven-repo-url)
+        - name: MAVEN_PROJECT_CONTEXT_DIR
+          value: business-application-service
+        - name: GOALS
+          value: 'oc:resource oc:apply'
+      runAfter:
+        - build-container-img
+      taskRef:
+        kind: Task
+        name: mvn-jkube
+      workspaces:
+        - name: maven-repo
+          workspace: maven-local-repo
+        - name: maven-settings
+          workspace: maven-settings
+        - name: source
+          workspace: shared-workspace
+  workspaces:
+    - name: maven-local-repo
+      optional: false
+    - name: maven-settings
+      optional: false
+    - name: shared-workspace
+      optional: false
+  resources: []
+  finally: []
