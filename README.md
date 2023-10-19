@@ -216,7 +216,7 @@ curl -X 'POST' 'http://localhost:8080/Flight_recognition' -H 'accept: applicatio
 
 ## Deploying with Kogito Operator
 
-In the [`operator`](operator) directory you'll find the custom resources needed to deploy this example on OpenShift with the [Kogito Operator](https://docs.jboss.org/kogito/release/latest/html_single/#chap_kogito-deploying-on-openshift).
+In the [`operator`](operator) directory you'll find the custom resources needed to deploy this example on OpenShift with the [IBM BAMOE Kogito Operator](https://catalog.redhat.com/software/containers/ibm-bamoe/bamoe-kogito-rhel8-operator/62d668813273d8696f48a10e?architecture=amd64&image=650d88a8be89e09ba18b05a5).
 
 # Kogito DMN Provisioning and testing
 
@@ -234,7 +234,7 @@ In the [`operator`](operator) directory you'll find the custom resources needed 
 1. Log in to your OpenShift cluster in your terminal. You can copy the login command by using the option below in your OpenShift web UI.
 	![Log in to OpenShift using CLI](docs/ocp-login.png)
 2. Create an Openshift Project
-   `oc new-project rhpam-sandbox`
+   `oc new-project kogito`
 3. Install OpenShift Pipelines Operator in your Cluster. 
    1. To install it, using the **Administrator View**, navigate to **Operators** -> **Operator** Hub menu. 
    2. In the text field, search for OpenShift Pipelines, select the Operator that will show up. 
@@ -248,7 +248,7 @@ In the [`operator`](operator) directory you'll find the custom resources needed 
 1. Run the following oc command to create the pipeline resources:
 
 ```
-$ oc create -f ./cicd/tekton-resources/ -n rhpam-sandbox
+$ oc create -f ./cicd/tekton-resources/ -n kogito
 
 configmap/custom-maven-settings created
 eventlistener.triggers.tekton.dev/kogito-event-listener created
@@ -286,7 +286,7 @@ The following resources should be created in your namespace:
 	* Pipeline
 		> a collection of Tasks that you define and arrange in a specific order of execution as part of your continuous integration flow. Each Task in a Pipeline executes as a Pod on your Kubernetes cluster. You can configure various execution conditions to fit your business needs.
 
-You can confirm this by opening the OpenShift Console using the Developer perspective, and accessing Pipelines menu. From the **Project** dropdown list, select `rhpam-sandbox`, then you should see the `kogito-pipeline`:
+You can confirm this by opening the OpenShift Console using the Developer perspective, and accessing Pipelines menu. From the **Project** dropdown list, select `kogito`, then you should see the `kogito-pipeline`:
 ![Pipeline View	](docs/pipelines-view.png)
 
 Click the `kogito-pipeline` to see its details with a graphical representation.
@@ -297,7 +297,7 @@ Click the `kogito-pipeline` to see its details with a graphical representation.
 1. Expose the `Pipeline Event Listener`. In order to trigger a *Pipeline Run* with a *Git Push event* you need to expose your `Pipeline EventListener`:
 
 ```
-$ oc expose svc el-kogito-event-listener -n rhpam-sandbox
+$ oc expose svc el-kogito-event-listener -n kogito
 route.route.openshift.io/el-kogito-event-listener exposed	
 ```
 
@@ -314,7 +314,7 @@ This is the service that listens to your git hook events (via webhooks)!
 
 ```
 $ echo "$(oc  get route el-kogito-event-listener --template='http://{{.spec.host}}')"
-http://el-kogito-event-listener-rhpam-sandbox.your.cluster.domain.com
+http://el-kogito-event-listener-kogito.your.cluster.domain.com
 ```
 
 #### Configuring GitHub Webhooks 
